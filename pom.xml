@@ -18,6 +18,7 @@
 	<modules>
 		<module>validation</module>
 		<module>cdiutils</module>
+		<module>arquilliantools</module>
 	</modules>
 
 	<properties>
