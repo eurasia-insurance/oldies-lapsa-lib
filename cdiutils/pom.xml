@@ -8,17 +8,18 @@
 		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>lapsa-validation</artifactId>
+	<artifactId>lapsa-cdiutils</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Lapsa : Validation</name>
+	<name>Lapsa : CDI bean utils</name>
 
 	<dependencies>
-		<!-- external -->
+		<!-- Java EE -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+
 </project>
