@@ -1,4 +1,4 @@
-package com.lapsa.lapsa.cdi.producers;
+package com.lapsa.lapsa.cdiutils.producers;
 
 import java.util.logging.Logger;
 
