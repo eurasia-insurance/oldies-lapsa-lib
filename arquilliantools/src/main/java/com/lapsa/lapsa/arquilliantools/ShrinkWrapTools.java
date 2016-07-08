@@ -36,20 +36,16 @@ public class ShrinkWrapTools {
 	return ShrinkWrap.create(WebArchive.class, archiveName);
     }
 
-    public static void earAddDependencyArtifact(EnterpriseArchive ear, String artifactCanonicalForm) {
-	initPomResolveStage();
-	MavenResolvedArtifact[] arts = pomResolveStage
-		.resolve(artifactCanonicalForm)
-		.withTransitivity()
-		.asResolvedArtifact();
-	for (MavenResolvedArtifact artifact : arts)
-	    jarAddMavenResolvedArtifact(ear, artifact);
-    }
-
     public static void earAddDependencyArtifact(EnterpriseArchive ear, MavenArtifact... artifactCanonicalForm) {
 	initPomResolveStage();
-	for (MavenArtifact canonicalForm : artifactCanonicalForm)
-	    earAddDependencyArtifact(ear, canonicalForm.canonicalForm());
+	for (MavenArtifact canonicalForm : artifactCanonicalForm) {
+	    MavenResolvedArtifact[] mars = pomResolveStage
+		    .resolve(canonicalForm.canonicalForm())
+		    .withTransitivity()
+		    .asResolvedArtifact();
+	    for (MavenResolvedArtifact mra : mars)
+		earAddMavenResolvedArtifact(ear, mra);
+	}
     }
 
     public static MavenArtifact toMavenArtifiact(String groupId, String artifactId, MavenArtifactType packagingType) {
@@ -58,24 +54,24 @@ public class ShrinkWrapTools {
 
     public static void earAddRuntimeDependencies(EnterpriseArchive ear) {
 	initPomResolveStage();
-	MavenResolvedArtifact[] artifacts = pomResolveStage
+	MavenResolvedArtifact[] mars = pomResolveStage
 		.importCompileAndRuntimeDependencies()
 		.resolve()
 		.withTransitivity()
 		.asResolvedArtifact();
-	for (MavenResolvedArtifact artifact : artifacts)
-	    jarAddMavenResolvedArtifact(ear, artifact);
+	for (MavenResolvedArtifact mar : mars)
+	    earAddMavenResolvedArtifact(ear, mar);
     }
 
     public static void earAddTestDependencies(EnterpriseArchive ear) {
 	initPomResolveStage();
-	MavenResolvedArtifact[] artifacts = pomResolveStage
+	MavenResolvedArtifact[] mars = pomResolveStage
 		.importTestDependencies()
 		.resolve()
 		.withTransitivity()
 		.asResolvedArtifact();
-	for (MavenResolvedArtifact artifact : artifacts)
-	    jarAddMavenResolvedArtifact(ear, artifact);
+	for (MavenResolvedArtifact mar : mars)
+	    earAddMavenResolvedArtifact(ear, mar);
     }
 
     public static void warAddWebinfFolderRecursive(WebArchive war) {
@@ -138,25 +134,29 @@ public class ShrinkWrapTools {
 	public String canonicalForm() {
 	    return String.format("%1$s:%2$s:%3$s:?", groupId, artifactId, packagingType.mavenPackagingType);
 	}
+
+	public String toString() {
+	    return canonicalForm();
+	}
     }
 
     // PRIVATE
 
-    private static void jarAddMavenResolvedArtifact(EnterpriseArchive ear, MavenResolvedArtifact artifact) {
-	MavenCoordinate co = artifact.getCoordinate();
+    private static void earAddMavenResolvedArtifact(EnterpriseArchive ear, MavenResolvedArtifact mar) {
+	MavenCoordinate co = mar.getCoordinate();
 	if (co.getType().equals(PackagingType.JAR)) {
 	    JavaArchive archive = ShrinkWrap.create(JavaArchive.class, co.getArtifactId() + ".jar");
-	    archive.merge(artifact.as(JavaArchive.class));
+	    archive.merge(mar.as(JavaArchive.class));
 	    ear.addAsLibrary(archive);
 	}
 	if (co.getType().equals(PackagingType.EJB)) {
 	    JavaArchive archive = ShrinkWrap.create(JavaArchive.class, co.getArtifactId() + ".jar");
-	    archive.merge(artifact.as(JavaArchive.class));
+	    archive.merge(mar.as(JavaArchive.class));
 	    ear.addAsModule(archive);
 	}
 	if (co.getType().equals(PackagingType.WAR)) {
 	    WebArchive archive = ShrinkWrap.create(WebArchive.class, co.getArtifactId() + ".war");
-	    archive.merge(artifact.as(JavaArchive.class));
+	    archive.merge(mar.as(JavaArchive.class));
 	    ear.addAsModule(archive);
 	}
     }
