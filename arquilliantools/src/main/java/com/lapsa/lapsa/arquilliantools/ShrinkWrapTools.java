@@ -32,6 +32,10 @@ public class ShrinkWrapTools {
 	return ShrinkWrap.create(JavaArchive.class, archiveName);
     }
 
+    public static WebArchive createWAR(String archiveName) {
+	return ShrinkWrap.create(WebArchive.class, archiveName);
+    }
+
     public static void earAddDependencyArtifact(EnterpriseArchive ear, String artifactCanonicalForm) {
 	initPomResolveStage();
 	MavenResolvedArtifact[] arts = pomResolveStage
@@ -40,6 +44,16 @@ public class ShrinkWrapTools {
 		.asResolvedArtifact();
 	for (MavenResolvedArtifact artifact : arts)
 	    jarAddMavenResolvedArtifact(ear, artifact);
+    }
+
+    public static void earAddDependencyArtifact(EnterpriseArchive ear, MavenArtifact... artifactCanonicalForm) {
+	initPomResolveStage();
+	for (MavenArtifact canonicalForm : artifactCanonicalForm)
+	    earAddDependencyArtifact(ear, canonicalForm.canonicalForm());
+    }
+
+    public static MavenArtifact toMavenArtifiact(String groupId, String artifactId, MavenArtifactType packagingType) {
+	return new MavenArtifact(groupId, artifactId, packagingType);
     }
 
     public static void earAddRuntimeDependencies(EnterpriseArchive ear) {
@@ -51,6 +65,21 @@ public class ShrinkWrapTools {
 		.asResolvedArtifact();
 	for (MavenResolvedArtifact artifact : artifacts)
 	    jarAddMavenResolvedArtifact(ear, artifact);
+    }
+
+    public static void earAddTestDependencies(EnterpriseArchive ear) {
+	initPomResolveStage();
+	MavenResolvedArtifact[] artifacts = pomResolveStage
+		.importTestDependencies()
+		.resolve()
+		.withTransitivity()
+		.asResolvedArtifact();
+	for (MavenResolvedArtifact artifact : artifacts)
+	    jarAddMavenResolvedArtifact(ear, artifact);
+    }
+
+    public static void warAddWebinfFolderRecursive(WebArchive war) {
+	warAddResources(war, new File("src/main/webapp/WEB-INF"), "/", true, false);
     }
 
     public static void jarAddManifestFolderRecursive(JavaArchive jar) {
@@ -73,10 +102,42 @@ public class ShrinkWrapTools {
 	jarAddResources(jar, root, "/", false, true);
     }
 
-    // G:A:P:C:V
+    public static enum MavenArtifactType {
+	WAR("war"), //
+	JAR("jar"), //
+	EJB("ejb"), //
+	EAR("ear"), //
+	;
+	private final String mavenPackagingType;
 
-    public static String generateCanonicalForm(String groupId, String artifactId, String packagingType) {
-	return String.format("%1$s:%2$s:%3$s:?", groupId, artifactId, packagingType);
+	private MavenArtifactType(String mavenPackagingType) {
+	    this.mavenPackagingType = mavenPackagingType;
+	}
+
+	public static MavenArtifactType forType(String mavenPackagingType) {
+	    for (MavenArtifactType mat : MavenArtifactType.values())
+		if (mat.mavenPackagingType.equals(mavenPackagingType))
+		    return mat;
+	    return null;
+	}
+    }
+
+    public static class MavenArtifact {
+	private final String groupId;
+	private final String artifactId;
+	private final MavenArtifactType packagingType;
+
+	private MavenArtifact(String groupId, String artifactId, MavenArtifactType packagingType) {
+	    this.groupId = groupId;
+	    this.artifactId = artifactId;
+	    this.packagingType = packagingType;
+	}
+
+	// G:A:P:C:V
+
+	public String canonicalForm() {
+	    return String.format("%1$s:%2$s:%3$s:?", groupId, artifactId, packagingType.mavenPackagingType);
+	}
     }
 
     // PRIVATE
@@ -115,6 +176,23 @@ public class ShrinkWrapTools {
 		    jar.addAsManifestResource(f, sub + f.getName());
 	    } else if (f.isDirectory() && recursive)
 		jarAddResources(jar, f, sub + f.getName() + "/", recursive, resourceOrManifest);
+    }
+
+    private static void warAddResources(WebArchive war, File file, String targetPath, boolean recursive,
+	    boolean resourceOrManifest) {
+	if (file == null)
+	    throw new NullPointerException();
+	if (!file.exists() || !file.isDirectory())
+	    throw new RuntimeException(String.format("%1$s must be a directory", file));
+	String sub = (targetPath.startsWith("/") ? "" : "/") + targetPath + (targetPath.endsWith("/") ? "" : "/");
+	for (File f : file.listFiles())
+	    if (f.isFile()) {
+		if (resourceOrManifest)
+		    war.addAsResource(f, sub + f.getName());
+		else
+		    war.addAsWebInfResource(f, sub + f.getName());
+	    } else if (f.isDirectory() && recursive)
+		warAddResources(war, f, sub + f.getName() + "/", recursive, resourceOrManifest);
     }
 
     private static void initPomResolveStage() {
