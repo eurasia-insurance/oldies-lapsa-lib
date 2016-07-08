@@ -20,16 +20,32 @@ public class ShrinkWrapTools {
 
     private static PomEquippedResolveStage pomResolveStage;
 
+    public static EnterpriseArchive createEAR() {
+	return ShrinkWrap.create(EnterpriseArchive.class);
+    }
+
     public static EnterpriseArchive createEAR(String archiveName) {
 	return ShrinkWrap.create(EnterpriseArchive.class, archiveName);
+    }
+
+    public static JavaArchive createEJB() {
+	return createJAR();
     }
 
     public static JavaArchive createEJB(String archiveName) {
 	return createJAR(archiveName);
     }
 
+    public static JavaArchive createJAR() {
+	return ShrinkWrap.create(JavaArchive.class);
+    }
+
     public static JavaArchive createJAR(String archiveName) {
 	return ShrinkWrap.create(JavaArchive.class, archiveName);
+    }
+
+    public static WebArchive createWAR() {
+	return ShrinkWrap.create(WebArchive.class);
     }
 
     public static WebArchive createWAR(String archiveName) {
