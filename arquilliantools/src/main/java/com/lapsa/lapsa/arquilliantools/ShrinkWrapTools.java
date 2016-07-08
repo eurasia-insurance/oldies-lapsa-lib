@@ -43,8 +43,8 @@ public class ShrinkWrapTools {
 		    .resolve(canonicalForm.canonicalForm())
 		    .withTransitivity()
 		    .asResolvedArtifact();
-	    for (MavenResolvedArtifact mra : mars)
-		earAddMavenResolvedArtifact(ear, mra);
+	    for (MavenResolvedArtifact mar : mars)
+		earAddMavenResolvedArtifact(ear, mar);
 	}
     }
 
