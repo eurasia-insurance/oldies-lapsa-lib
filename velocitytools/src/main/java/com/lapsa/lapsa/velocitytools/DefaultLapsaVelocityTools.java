@@ -67,9 +67,13 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
     }
 
     @Override
-    public InputStream getTemplateReousrceAsStream(ClassLoader classLoader, LocalizationLanguage language,
+    public InputStream getTemplateReousrceAsStream(Class<?> clazz, LocalizationLanguage language,
 	    String templateResourceName) {
-	return classLoader.getResourceAsStream(getTemplateReousrcePath(language, templateResourceName));
+	String resourcePath = getTemplateReousrcePath(language, templateResourceName);
+	InputStream is = clazz.getResourceAsStream(resourcePath);
+	if (is == null)
+	    throw new RuntimeException(String.format("Resource not found '%1$s'", resourcePath));
+	return is;
     }
 
     @Override

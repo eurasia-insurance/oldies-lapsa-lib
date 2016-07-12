@@ -22,6 +22,6 @@ public interface LapsaVelocityTools {
     String getTemplateMergedText(VelocityContext context, String templateContent)
 	    throws ParseException;
 
-    InputStream getTemplateReousrceAsStream(ClassLoader classLoader, LocalizationLanguage language, String templateResourceName);
+    InputStream getTemplateReousrceAsStream(Class<?> clazz, LocalizationLanguage language, String templateResourceName);
 
 }
