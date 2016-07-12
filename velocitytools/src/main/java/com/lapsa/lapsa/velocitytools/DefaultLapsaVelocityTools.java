@@ -62,13 +62,14 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
     @Override
     public String getTemplateReousrcePath(LocalizationLanguage language, String templateResourceName) {
-	return String.format("%1$s/%2$s/%3$s", templateResourcePath, language.getTag(), templateResourceName);
+	return String.format("%1$s/%2$s/%3$s", stripTailingSlash(templateResourcePath), language.getTag(),
+		stripBeginingSlash(templateResourceName));
     }
 
     @Override
-    public InputStream getTemplateReousrceAsStream(LocalizationLanguage language, String templateResourceName) {
-	return DefaultLapsaVelocityTools.class
-		.getResourceAsStream(getTemplateReousrcePath(language, templateResourceName));
+    public InputStream getTemplateReousrceAsStream(ClassLoader classLoader, LocalizationLanguage language,
+	    String templateResourceName) {
+	return classLoader.getResourceAsStream(getTemplateReousrcePath(language, templateResourceName));
     }
 
     @Override
@@ -113,6 +114,20 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
     private Template getByPath(String templatePath) {
 	Template t = velocityEngine.getTemplate(templatePath, "UTF-8");
 	return t;
+    }
+
+    private String stripTailingSlash(String value) {
+	StringBuffer ret = new StringBuffer(value);
+	while (ret.charAt(ret.length() - 1) == '/')
+	    ret.deleteCharAt(ret.length() - 1);
+	return ret.toString();
+    }
+
+    private String stripBeginingSlash(String value) {
+	StringBuffer ret = new StringBuffer(value);
+	while (ret.charAt(0) == '/')
+	    ret.deleteCharAt(0);
+	return ret.toString();
     }
 
 }
