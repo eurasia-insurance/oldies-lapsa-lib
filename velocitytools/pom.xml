@@ -13,33 +13,6 @@
 
 	<name>Lapsa : Velocity tools</name>
 
-
-	<properties>
-		<international-lib.version>2.0.1-SNAPSHOT</international-lib.version>
-	</properties>
-
-	<dependencyManagement>
-		<dependencies>
-			<!-- internal -->
-			<dependency>
-				<groupId>com.lapsa.international-lib</groupId>
-				<artifactId>international-core</artifactId>
-				<version>${international-lib.version}</version>
-			</dependency>
-			<!-- external -->
-			<dependency>
-				<groupId>org.apache.velocity</groupId>
-				<artifactId>velocity</artifactId>
-				<version>1.7</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.velocity</groupId>
-				<artifactId>velocity-tools</artifactId>
-				<version>2.0</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
 	<dependencies>
 		<!-- own -->
 		<dependency>

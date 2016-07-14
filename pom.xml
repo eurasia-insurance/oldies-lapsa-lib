@@ -24,6 +24,9 @@
 
 	<properties>
 		<hibernate-validator.version>5.0.0.Final</hibernate-validator.version>
+		<velocity.version>1.7</velocity.version>
+		<velocity-tools.version>2.0</velocity-tools.version>
+		<international-lib.version>2.0.1-SNAPSHOT</international-lib.version>
 	</properties>
 
 	<dependencyManagement>
@@ -39,7 +42,23 @@
 				<artifactId>lapsa-cdiutils</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<!-- internal -->
+			<dependency>
+				<groupId>com.lapsa.international-lib</groupId>
+				<artifactId>international-core</artifactId>
+				<version>${international-lib.version}</version>
+			</dependency>
 			<!-- external -->
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity</artifactId>
+				<version>${velocity.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity-tools</artifactId>
+				<version>${velocity-tools.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
