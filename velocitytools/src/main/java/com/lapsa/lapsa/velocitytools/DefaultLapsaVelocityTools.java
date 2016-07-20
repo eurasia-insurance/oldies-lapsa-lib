@@ -37,7 +37,7 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
     @Override
     public void setDefaultTemplateResourcePath(String templateResourcePath) {
-	this.templateResourcePath =  templateResourcePath;
+	this.templateResourcePath = templateResourcePath;
     }
 
     @Override
@@ -155,5 +155,4 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 	    ret.deleteCharAt(0);
 	return ret.toString();
     }
-
 }
