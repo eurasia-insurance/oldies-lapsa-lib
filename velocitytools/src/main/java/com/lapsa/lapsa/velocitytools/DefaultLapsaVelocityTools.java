@@ -23,7 +23,7 @@ import com.lapsa.localization.LocalizationLanguage;
 
 public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
-    protected static final String DEFAULT_TEMPLATE_PATH = "/emailTemplates/";
+    protected static final String DEFAULT_TEMPLATE_PATH = "emailTemplates";
 
     private String templateResourcePath = DEFAULT_TEMPLATE_PATH;
 
@@ -35,7 +35,7 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
     @Override
     public void setDefaultTemplateResourcePath(String templateResourcePath) {
-	this.templateResourcePath = templateResourcePath;
+	this.templateResourcePath =  templateResourcePath;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
     @Override
     public String getTemplateReousrcePath(LocalizationLanguage language, String templateResourceName) {
-	return String.format("%1$s/%2$s/%3$s", stripTailingSlash(templateResourcePath), language.getTag(),
+	return String.format("/%1$s/%2$s/%3$s", stripBothSlashes(templateResourcePath), language.getTag(),
 		stripBeginingSlash(templateResourceName));
     }
 
@@ -118,6 +118,10 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
     private Template getByPath(String templatePath) {
 	Template t = velocityEngine.getTemplate(templatePath, "UTF-8");
 	return t;
+    }
+
+    private String stripBothSlashes(String value) {
+	return stripTailingSlash(stripBeginingSlash(value));
     }
 
     private String stripTailingSlash(String value) {
