@@ -25,6 +25,6 @@ public interface LapsaVelocityTools {
 
     InputStream getTemplateReousrceAsStream(LocalizationLanguage language, String templateResourceName);
 
-    ResourceBundle getResourceBundle(String bundleBasename, LocalizationLanguage language);
+    ResourceBundle getResourceBundle(LocalizationLanguage language, String bundleBasename);
 
 }

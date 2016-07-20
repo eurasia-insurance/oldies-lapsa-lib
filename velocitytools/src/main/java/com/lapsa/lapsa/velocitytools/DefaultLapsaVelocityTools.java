@@ -5,6 +5,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
@@ -78,7 +79,7 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
     }
 
     @Override
-    public ResourceBundle getResourceBundle(String baseName, LocalizationLanguage language) {
+    public ResourceBundle getResourceBundle(LocalizationLanguage language, String baseName) {
 	ClassLoader classLoader = null;
 	if (classLoader == null)
 	    classLoader = Thread.currentThread().getContextClassLoader();
@@ -87,7 +88,8 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 	if (classLoader == null)
 	    throw new RuntimeException(
 		    String.format("Resource bundle not found '%1$s' (Class loader is null)", baseName));
-	ResourceBundle rb = ResourceBundle.getBundle(baseName, language.getLocale(), classLoader);
+	ResourceBundle rb = ResourceBundle.getBundle(baseName,
+		(language != null ? language.getLocale() : Locale.getDefault()), classLoader);
 	if (rb == null)
 	    throw new RuntimeException(String.format("Resource bundle not found '%1$s'", baseName));
 	return rb;
