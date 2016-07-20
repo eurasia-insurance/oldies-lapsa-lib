@@ -16,15 +16,15 @@ public interface LapsaVelocityTools {
 	    String templateResourceName);
 
     void setDefaultTemplateResourcePath(String templateResourcePath);
-    
+
     String getTemplateMergedText(VelocityContext context, LocalizationLanguage language,
 	    String templateResourceName);
 
     String getTemplateMergedText(VelocityContext context, String templateContent)
 	    throws ParseException;
 
-    InputStream getTemplateReousrceAsStream(Class<?> clazz, LocalizationLanguage language, String templateResourceName);
+    InputStream getTemplateReousrceAsStream(LocalizationLanguage language, String templateResourceName);
 
-    ResourceBundle getResourceBundle(String bundleBasename, LocalizationLanguage language, Class<?> clazz);
+    ResourceBundle getResourceBundle(String bundleBasename, LocalizationLanguage language);
 
 }
