@@ -19,6 +19,7 @@ import org.apache.velocity.runtime.RuntimeSingleton;
 import org.apache.velocity.runtime.parser.ParseException;
 import org.apache.velocity.runtime.parser.node.SimpleNode;
 import org.apache.velocity.tools.generic.DateTool;
+import org.apache.velocity.util.ClassUtils;
 
 import com.lapsa.localization.LocalizationLanguage;
 
@@ -71,7 +72,7 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
     public InputStream getTemplateReousrceAsStream(Class<?> clazz, LocalizationLanguage language,
 	    String templateResourceName) {
 	String resourcePath = getTemplateReousrcePath(language, templateResourceName);
-	InputStream is = clazz.getResourceAsStream(resourcePath);
+	InputStream is = ClassUtils.getResourceAsStream(clazz, resourcePath);
 	if (is == null)
 	    throw new RuntimeException(String.format("Resource not found '%1$s'", resourcePath));
 	return is;
