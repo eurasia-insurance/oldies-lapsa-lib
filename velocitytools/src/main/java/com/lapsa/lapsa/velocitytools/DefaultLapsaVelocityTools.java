@@ -6,6 +6,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
@@ -74,6 +75,22 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 	if (is == null)
 	    throw new RuntimeException(String.format("Resource not found '%1$s'", resourcePath));
 	return is;
+    }
+
+    @Override
+    public ResourceBundle getResourceBundle(String baseName, LocalizationLanguage language, Class<?> clazz) {
+	ClassLoader classLoader = null;
+	if (classLoader == null)
+	    classLoader = Thread.currentThread().getContextClassLoader();
+	if (classLoader == null)
+	    classLoader = clazz.getClassLoader();
+	if (classLoader == null)
+	    throw new RuntimeException(
+		    String.format("Resource bundle not found '%1$s' (Class loader is null)", baseName));
+	ResourceBundle rb = ResourceBundle.getBundle(baseName, language.getLocale(), classLoader);
+	if (rb == null)
+	    throw new RuntimeException(String.format("Resource bundle not found '%1$s'", baseName));
+	return rb;
     }
 
     @Override
