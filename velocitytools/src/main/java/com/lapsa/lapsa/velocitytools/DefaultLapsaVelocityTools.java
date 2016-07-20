@@ -65,7 +65,8 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
     @Override
     public String getTemplateReousrcePath(LocalizationLanguage language, String templateResourceName) {
-	return String.format("/%1$s/%2$s/%3$s", stripBothSlashes(templateResourcePath), language.getTag(),
+	String tag = (language != null ? language.getTag() : Locale.getDefault().getLanguage());
+	return String.format("/%1$s/%2$s/%3$s", stripBothSlashes(templateResourcePath), tag,
 		stripBeginingSlash(templateResourceName));
     }
 
@@ -96,7 +97,7 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
     }
 
     @Override
-    public String getTemplateMergedText(VelocityContext context, LocalizationLanguage language,
+    public String getTemplateMergedText(LocalizationLanguage language, VelocityContext context,
 	    String templateResourceName) {
 	String templatePath = getTemplateReousrcePath(language, templateResourceName);
 
@@ -110,13 +111,13 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
     @Override
     public String getTemplateMergedText(VelocityContext context, final String templateContent)
 	    throws ParseException {
-	boolean originEndsWithCR = templateContent.endsWith("\n");
-	String templ = (originEndsWithCR) ? templateContent : (templateContent + "\n");
+	boolean originEndsWithLF = templateContent.endsWith("\n");
+	String templ = originEndsWithLF ? templateContent : (templateContent + "\n");
 	Template t = getFromString(templ);
 	Writer w = new StringWriter();
 	t.merge(context, w);
 	StringBuffer sb = new StringBuffer(w.toString());
-	if (!originEndsWithCR && sb.length() > 0)
+	if (!originEndsWithLF && sb.length() > 0)
 	    sb.deleteCharAt(sb.length() - 1);
 	return sb.toString();
     }

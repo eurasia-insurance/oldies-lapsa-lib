@@ -17,7 +17,7 @@ public interface LapsaVelocityTools {
 
     void setDefaultTemplateResourcePath(String templateResourcePath);
 
-    String getTemplateMergedText(VelocityContext context, LocalizationLanguage language,
+    String getTemplateMergedText(LocalizationLanguage language, VelocityContext context,
 	    String templateResourceName);
 
     String getTemplateMergedText(VelocityContext context, String templateContent)
