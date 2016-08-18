@@ -52,12 +52,24 @@ public class ShrinkWrapTools {
 	return ShrinkWrap.create(WebArchive.class, archiveName);
     }
 
-    public static void earAddDependencyArtifact(EnterpriseArchive ear, MavenArtifact... artifactCanonicalForm) {
+    public static void earAddDependencyArtifactWithDependencies(EnterpriseArchive ear, MavenArtifact... artifactCanonicalForm) {
 	initPomResolveStage();
 	for (MavenArtifact canonicalForm : artifactCanonicalForm) {
 	    MavenResolvedArtifact[] mars = pomResolveStage
 		    .resolve(canonicalForm.canonicalForm())
 		    .withTransitivity()
+		    .asResolvedArtifact();
+	    for (MavenResolvedArtifact mar : mars)
+		earAddMavenResolvedArtifact(ear, mar);
+	}
+    }
+
+    public static void earAddDependencyArtifact(EnterpriseArchive ear, MavenArtifact... artifactCanonicalForm) {
+	initPomResolveStage();
+	for (MavenArtifact canonicalForm : artifactCanonicalForm) {
+	    MavenResolvedArtifact[] mars = pomResolveStage
+		    .resolve(canonicalForm.canonicalForm())
+		    .withoutTransitivity()
 		    .asResolvedArtifact();
 	    for (MavenResolvedArtifact mar : mars)
 		earAddMavenResolvedArtifact(ear, mar);
