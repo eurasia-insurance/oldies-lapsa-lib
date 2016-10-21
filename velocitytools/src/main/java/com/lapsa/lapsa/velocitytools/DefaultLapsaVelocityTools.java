@@ -15,6 +15,9 @@ import javax.inject.Inject;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.exception.MethodInvocationException;
+import org.apache.velocity.exception.ParseErrorException;
+import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.RuntimeServices;
 import org.apache.velocity.runtime.RuntimeSingleton;
 import org.apache.velocity.runtime.parser.ParseException;
@@ -98,19 +101,23 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
     @Override
     public String getTemplateMergedText(LocalizationLanguage language, VelocityContext context,
-	    String templateResourceName) {
+	    String templateResourceName) throws TemplateException {
 	String templatePath = getTemplateReousrcePath(language, templateResourceName);
 
 	Template t = getByPath(templatePath);
 
 	Writer w = new StringWriter();
-	t.merge(context, w);
+	try {
+	    t.merge(context, w);
+	} catch (ResourceNotFoundException | ParseErrorException | MethodInvocationException e) {
+	    throw new TemplateException(e);
+	}
 	return w.toString();
     }
 
     @Override
     public String getTemplateMergedText(VelocityContext context, final String templateContent)
-	    throws ParseException {
+	    throws TemplateException {
 	boolean originEndsWithLF = templateContent.endsWith("\n");
 	String templ = originEndsWithLF ? templateContent : (templateContent + "\n");
 	Template t = getFromString(templ);
@@ -124,10 +131,15 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
     // PRIVATE
 
-    private Template getFromString(String templateContent) throws ParseException {
+    private Template getFromString(String templateContent) throws TemplateException {
 	RuntimeServices runtimeServices = RuntimeSingleton.getRuntimeServices();
 	StringReader reader = new StringReader(templateContent);
-	SimpleNode node = runtimeServices.parse(reader, "Template name");
+	SimpleNode node;
+	try {
+	    node = runtimeServices.parse(reader, "Template name");
+	} catch (ParseException e) {
+	    throw new TemplateException(e);
+	}
 	Template t = new Template();
 	t.setRuntimeServices(runtimeServices);
 	t.setData(node);
@@ -135,8 +147,13 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 	return t;
     }
 
-    private Template getByPath(String templatePath) {
-	Template t = velocityEngine.getTemplate(templatePath, "UTF-8");
+    private Template getByPath(String templatePath) throws TemplateException {
+	Template t;
+	try {
+	    t = velocityEngine.getTemplate(templatePath, "UTF-8");
+	} catch (ResourceNotFoundException | ParseErrorException e) {
+	    throw new TemplateException(e);
+	}
 	return t;
     }
 
