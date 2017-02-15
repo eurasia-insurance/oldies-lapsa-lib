@@ -118,6 +118,14 @@ public class ShrinkWrapTools {
 	jarAddResources(jar, root, "/", true, true);
     }
 
+    public static void warAddAsResroucesRecursive(WebArchive war, File root, String target) {
+	warAddResources(war, root, target, true, true);
+    }
+
+    public static void warAddAsResroucesRecursive(WebArchive war, File root) {
+	warAddResources(war, root, "/", true, true);
+    }
+
     public static void jarAddAsResroucesNonRecursive(JavaArchive jar, File root, String target) {
 	jarAddResources(jar, root, target, false, true);
     }
