@@ -110,6 +110,10 @@ public class ShrinkWrapTools {
 	jarAddResources(jar, new File("src/main/resources/META-INF"), "/", true, false);
     }
 
+    public static void jarAddTestManifestFolerRecursive(JavaArchive jar) {
+	jarAddResources(jar, new File("src/test/resources/META-INF"), "/", true, false);
+    }
+    
     public static void jarAddAsResroucesRecursive(JavaArchive jar, File root, String target) {
 	jarAddResources(jar, root, target, true, true);
     }
