@@ -17,6 +17,7 @@
 	<modules>
 		<module>validation</module>
 		<module>cdiutils</module>
+		<module>utils</module>
 		<module>arquilliantools</module>
 		<module>velocitytools</module>
 	</modules>
