@@ -6,7 +6,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.SecurityContext;
 
-public class SecurityUtils {
+public final class SecurityUtils {
 
     public static boolean isInRole(FacesContext facesContext, RoleGroup... roles) {
 	return isInRole(new FacesContextChecker(facesContext), roles);
