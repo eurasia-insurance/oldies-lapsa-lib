@@ -11,7 +11,7 @@ class EJBSessionContextChecker implements RoleChecker {
     }
 
     @Override
-    public boolean isUserInRole(Role role) {
-	return ejbSessionContext.isCallerInRole(role.name());
+    public boolean isUserInRole(SecurityRole securityRole) {
+	return ejbSessionContext.isCallerInRole(securityRole.name());
     }
 }

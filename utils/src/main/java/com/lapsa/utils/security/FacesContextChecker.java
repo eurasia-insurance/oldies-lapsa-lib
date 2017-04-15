@@ -11,7 +11,7 @@ class FacesContextChecker implements RoleChecker {
     }
 
     @Override
-    public boolean isUserInRole(Role role) {
-	return facesContext.getExternalContext().isUserInRole(role.name());
+    public boolean isUserInRole(SecurityRole securityRole) {
+	return facesContext.getExternalContext().isUserInRole(securityRole.name());
     }
 }

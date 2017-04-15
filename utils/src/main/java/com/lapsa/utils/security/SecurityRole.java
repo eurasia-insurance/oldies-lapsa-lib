@@ -1,5 +1,5 @@
 package com.lapsa.utils.security;
 
-public interface Role extends RoleGroup {
+public interface SecurityRole extends SecurityRoleGroup {
     String name();
 }

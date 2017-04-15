@@ -8,115 +8,115 @@ import javax.ws.rs.core.SecurityContext;
 
 public final class SecurityUtils {
 
-    public static boolean isInRole(FacesContext facesContext, RoleGroup... roles) {
+    public static boolean isInRole(FacesContext facesContext, SecurityRoleGroup... roles) {
 	return isInRole(new FacesContextChecker(facesContext), roles);
     }
 
-    public static boolean isInRole(SessionContext ejbSessionContext, RoleGroup... roles) {
+    public static boolean isInRole(SessionContext ejbSessionContext, SecurityRoleGroup... roles) {
 	return isInRole(new EJBSessionContextChecker(ejbSessionContext), roles);
     }
 
-    public static boolean isInRole(HttpServletRequest httpServletRequest, RoleGroup... roles) {
+    public static boolean isInRole(HttpServletRequest httpServletRequest, SecurityRoleGroup... roles) {
 	return isInRole(new HttpServletRequestChecker(httpServletRequest), roles);
     }
 
-    public static boolean isInRole(SecurityContext securityContext, RoleGroup... roles) {
+    public static boolean isInRole(SecurityContext securityContext, SecurityRoleGroup... roles) {
 	return isInRole(new RestSecurityContextChecker(securityContext), roles);
     }
 
-    public static boolean isInRole(RoleGroup... roles) {
+    public static boolean isInRole(SecurityRoleGroup... roles) {
 	RoleChecker checker = determineChecker();
 	return isInRole(checker);
     }
 
     //
 
-    public static void checkRoleGranted(FacesContext facesContext, String message, RoleGroup... roles) {
+    public static void checkRoleGranted(FacesContext facesContext, String message, SecurityRoleGroup... roles) {
 	checkRoleGranted(new FacesContextChecker(facesContext), message, roles);
     }
 
-    public static void checkRoleGranted(SessionContext ejbSessionContext, String message, RoleGroup... roles) {
+    public static void checkRoleGranted(SessionContext ejbSessionContext, String message, SecurityRoleGroup... roles) {
 	checkRoleGranted(new EJBSessionContextChecker(ejbSessionContext), message, roles);
     }
 
-    public static void checkRoleGranted(HttpServletRequest httpServletRequest, String message, RoleGroup... roles) {
+    public static void checkRoleGranted(HttpServletRequest httpServletRequest, String message, SecurityRoleGroup... roles) {
 	checkRoleGranted(new HttpServletRequestChecker(httpServletRequest), message, roles);
     }
 
-    public static void checkRoleGranted(SecurityContext securityContext, String message, RoleGroup... roles) {
+    public static void checkRoleGranted(SecurityContext securityContext, String message, SecurityRoleGroup... roles) {
 	checkRoleGranted(new RestSecurityContextChecker(securityContext), message, roles);
     }
 
-    public static void checkRoleGranted(String message, RoleGroup... roles) {
+    public static void checkRoleGranted(String message, SecurityRoleGroup... roles) {
 	RoleChecker checker = determineChecker();
 	checkRoleGranted(checker, message, roles);
     }
 
     //
 
-    public static void checkRoleGranted(FacesContext facesContext, RoleGroup... roles) {
+    public static void checkRoleGranted(FacesContext facesContext, SecurityRoleGroup... roles) {
 	checkRoleGranted(new FacesContextChecker(facesContext), roles);
     }
 
-    public static void checkRoleGranted(SessionContext ejbSessionContext, RoleGroup... roles) {
+    public static void checkRoleGranted(SessionContext ejbSessionContext, SecurityRoleGroup... roles) {
 	checkRoleGranted(new EJBSessionContextChecker(ejbSessionContext), roles);
     }
 
-    public static void checkRoleGranted(HttpServletRequest httpServletRequest, RoleGroup... roles) {
+    public static void checkRoleGranted(HttpServletRequest httpServletRequest, SecurityRoleGroup... roles) {
 	checkRoleGranted(new HttpServletRequestChecker(httpServletRequest), roles);
     }
 
-    public static void checkRoleGranted(SecurityContext securityContext, RoleGroup... roles) {
+    public static void checkRoleGranted(SecurityContext securityContext, SecurityRoleGroup... roles) {
 	checkRoleGranted(new RestSecurityContextChecker(securityContext), roles);
     }
 
-    public static void checkRoleGranted(RoleGroup... roles) {
+    public static void checkRoleGranted(SecurityRoleGroup... roles) {
 	RoleChecker checker = determineChecker();
 	checkRoleGranted(checker, roles);
     }
 
     //
 
-    public static void checkRoleDenied(FacesContext facesContext, String message, RoleGroup... roles) {
+    public static void checkRoleDenied(FacesContext facesContext, String message, SecurityRoleGroup... roles) {
 	checkRoleDenied(new FacesContextChecker(facesContext), message, roles);
     }
 
-    public static void checkRoleDenied(SessionContext ejbSessionContext, String message, RoleGroup... roles) {
+    public static void checkRoleDenied(SessionContext ejbSessionContext, String message, SecurityRoleGroup... roles) {
 	checkRoleDenied(new EJBSessionContextChecker(ejbSessionContext), message, roles);
     }
 
-    public static void checkRoleDenied(HttpServletRequest httpServletRequest, String message, RoleGroup... roles) {
+    public static void checkRoleDenied(HttpServletRequest httpServletRequest, String message, SecurityRoleGroup... roles) {
 	checkRoleDenied(new HttpServletRequestChecker(httpServletRequest), message, roles);
     }
 
-    public static void checkRoleDenied(SecurityContext securityContext, String message, RoleGroup... roles) {
+    public static void checkRoleDenied(SecurityContext securityContext, String message, SecurityRoleGroup... roles) {
 	checkRoleDenied(new RestSecurityContextChecker(securityContext), message, roles);
     }
 
-    public static void checkRoleDenied(String message, RoleGroup... roles) {
+    public static void checkRoleDenied(String message, SecurityRoleGroup... roles) {
 	RoleChecker checker = determineChecker();
 	checkRoleDenied(checker, message, roles);
     }
 
     //
 
-    public static void checkRoleDenied(FacesContext facesContext, RoleGroup... roles) {
+    public static void checkRoleDenied(FacesContext facesContext, SecurityRoleGroup... roles) {
 	checkRoleDenied(new FacesContextChecker(facesContext), roles);
     }
 
-    public static void checkRoleDenied(SessionContext ejbSessionContext, RoleGroup... roles) {
+    public static void checkRoleDenied(SessionContext ejbSessionContext, SecurityRoleGroup... roles) {
 	checkRoleDenied(new EJBSessionContextChecker(ejbSessionContext), roles);
     }
 
-    public static void checkRoleDenied(HttpServletRequest httpServletRequest, RoleGroup... roles) {
+    public static void checkRoleDenied(HttpServletRequest httpServletRequest, SecurityRoleGroup... roles) {
 	checkRoleDenied(new HttpServletRequestChecker(httpServletRequest), roles);
     }
 
-    public static void checkRoleDenied(SecurityContext securityContext, RoleGroup... roles) {
+    public static void checkRoleDenied(SecurityContext securityContext, SecurityRoleGroup... roles) {
 	checkRoleDenied(new RestSecurityContextChecker(securityContext), roles);
     }
 
-    public static void checkRoleDenied(RoleGroup... roles) {
+    public static void checkRoleDenied(SecurityRoleGroup... roles) {
 	RoleChecker checker = determineChecker();
 	checkRoleDenied(checker, roles);
     }
@@ -155,21 +155,21 @@ public final class SecurityUtils {
 	throw new RuntimeException("Can not determine security context");
     }
 
-    private static boolean isInRole(RoleChecker roleChecker, RoleGroup... roles) {
-	for (RoleGroup roleGroup : roles)
-	    for (Role r : roleGroup.getRoles())
+    private static boolean isInRole(RoleChecker roleChecker, SecurityRoleGroup... roles) {
+	for (SecurityRoleGroup securityRoleGroup : roles)
+	    for (SecurityRole r : securityRoleGroup.getRoles())
 		if (roleChecker.isUserInRole(r))
 		    return true;
 	return false;
     }
 
-    private static void checkRoleGranted(RoleChecker checker, String message, RoleGroup[] roles) {
+    private static void checkRoleGranted(RoleChecker checker, String message, SecurityRoleGroup[] roles) {
 	if (isInRole(checker, roles))
 	    return;
 	throw new UnauthorizedException(message);
     }
 
-    private static void checkRoleGranted(RoleChecker checker, RoleGroup... roles) {
+    private static void checkRoleGranted(RoleChecker checker, SecurityRoleGroup... roles) {
 	StringBuffer sb = new StringBuffer("Недостаточно прав доступа.");
 	for (int i = 0; i < roles.length; i++) {
 	    if (i == 0)
@@ -183,13 +183,13 @@ public final class SecurityUtils {
 	checkRoleGranted(checker, sb.toString(), roles);
     }
 
-    private static void checkRoleDenied(RoleChecker checker, String message, RoleGroup... roles) {
+    private static void checkRoleDenied(RoleChecker checker, String message, SecurityRoleGroup... roles) {
 	if (!isInRole(checker, roles))
 	    return;
 	throw new UnauthorizedException(message);
     }
 
-    private static void checkRoleDenied(RoleChecker checker, RoleGroup... roles) {
+    private static void checkRoleDenied(RoleChecker checker, SecurityRoleGroup... roles) {
 	StringBuffer sb = new StringBuffer("Недостаточно прав доступа.");
 	for (int i = 0; i < roles.length; i++) {
 	    if (i == 0)

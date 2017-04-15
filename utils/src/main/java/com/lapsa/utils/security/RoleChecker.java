@@ -1,5 +1,5 @@
 package com.lapsa.utils.security;
 
 interface RoleChecker {
-    boolean isUserInRole(Role role);
+    boolean isUserInRole(SecurityRole securityRole);
 }

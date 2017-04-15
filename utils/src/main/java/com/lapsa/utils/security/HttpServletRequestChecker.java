@@ -11,7 +11,7 @@ class HttpServletRequestChecker implements RoleChecker {
     }
 
     @Override
-    public boolean isUserInRole(Role role) {
-	return httpServletRequest.isUserInRole(role.name());
+    public boolean isUserInRole(SecurityRole securityRole) {
+	return httpServletRequest.isUserInRole(securityRole.name());
     }
 }

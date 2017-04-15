@@ -11,7 +11,7 @@ class RestSecurityContextChecker implements RoleChecker {
     }
 
     @Override
-    public boolean isUserInRole(Role role) {
-	return securityContext.isUserInRole(role.name());
+    public boolean isUserInRole(SecurityRole securityRole) {
+	return securityContext.isUserInRole(securityRole.name());
     }
 }
