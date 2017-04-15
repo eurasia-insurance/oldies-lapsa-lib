@@ -1,8 +1,10 @@
 package com.lapsa.utils.security;
 
+import java.security.Principal;
+
 import javax.faces.context.FacesContext;
 
-class FacesContextChecker implements RoleChecker {
+class FacesContextChecker implements SecuritySourceChecker {
 
     private final FacesContext facesContext;
 
@@ -12,6 +14,28 @@ class FacesContextChecker implements RoleChecker {
 
     @Override
     public boolean isUserInRole(SecurityRole securityRole) {
-	return facesContext.getExternalContext().isUserInRole(securityRole.name());
+	try {
+	    return facesContext.getExternalContext().isUserInRole(securityRole.name());
+	} catch (IllegalStateException | NullPointerException e) {
+	    return false;
+	}
+    }
+
+    @Override
+    public Principal getUserPrincipal() {
+	try {
+	    return facesContext.getExternalContext().getUserPrincipal();
+	} catch (IllegalStateException | NullPointerException e) {
+	    return null;
+	}
+    }
+
+    @Override
+    public String getRemoteUser() {
+	try {
+	    return facesContext.getExternalContext().getRemoteUser();
+	} catch (IllegalStateException | NullPointerException e) {
+	    return null;
+	}
     }
 }

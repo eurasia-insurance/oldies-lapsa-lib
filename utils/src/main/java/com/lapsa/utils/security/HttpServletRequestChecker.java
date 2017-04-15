@@ -1,8 +1,10 @@
 package com.lapsa.utils.security;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 
-class HttpServletRequestChecker implements RoleChecker {
+class HttpServletRequestChecker implements SecuritySourceChecker {
 
     private final HttpServletRequest httpServletRequest;
 
@@ -12,6 +14,28 @@ class HttpServletRequestChecker implements RoleChecker {
 
     @Override
     public boolean isUserInRole(SecurityRole securityRole) {
-	return httpServletRequest.isUserInRole(securityRole.name());
+	try {
+	    return httpServletRequest.isUserInRole(securityRole.name());
+	} catch (IllegalStateException | NullPointerException e) {
+	    return false;
+	}
+    }
+
+    @Override
+    public Principal getUserPrincipal() {
+	try {
+	    return httpServletRequest.getUserPrincipal();
+	} catch (IllegalStateException | NullPointerException e) {
+	    return null;
+	}
+    }
+
+    @Override
+    public String getRemoteUser() {
+	try {
+	    return httpServletRequest.getRemoteUser();
+	} catch (IllegalStateException | NullPointerException e) {
+	    return null;
+	}
     }
 }
