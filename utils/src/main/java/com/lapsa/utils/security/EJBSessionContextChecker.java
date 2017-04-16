@@ -1,15 +1,18 @@
 package com.lapsa.utils.security;
 
 import java.security.Principal;
+import java.util.Locale;
 
 import javax.ejb.SessionContext;
 
 class EJBSessionContextChecker implements SecuritySourceChecker {
 
     private final SessionContext ejbSessionContext;
+    private final Locale locale;
 
-    EJBSessionContextChecker(SessionContext ejbSessionContext) {
+    EJBSessionContextChecker(SessionContext ejbSessionContext, Locale locale) {
 	this.ejbSessionContext = ejbSessionContext;
+	this.locale = locale;
     }
 
     @Override
@@ -37,5 +40,10 @@ class EJBSessionContextChecker implements SecuritySourceChecker {
 	} catch (IllegalStateException | NullPointerException e) {
 	    return null;
 	}
+    }
+
+    @Override
+    public Locale getLocale() {
+	return locale;
     }
 }

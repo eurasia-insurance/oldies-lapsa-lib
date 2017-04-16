@@ -1,6 +1,7 @@
 package com.lapsa.utils.security;
 
 import java.security.Principal;
+import java.util.Locale;
 
 import javax.faces.context.FacesContext;
 
@@ -37,5 +38,10 @@ class FacesContextChecker implements SecuritySourceChecker {
 	} catch (IllegalStateException | NullPointerException e) {
 	    return null;
 	}
+    }
+
+    @Override
+    public Locale getLocale() {
+	return facesContext.getExternalContext().getRequestLocale();
     }
 }

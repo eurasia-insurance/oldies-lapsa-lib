@@ -1,6 +1,7 @@
 package com.lapsa.utils.security;
 
 import java.security.Principal;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -37,5 +38,10 @@ class HttpServletRequestChecker implements SecuritySourceChecker {
 	} catch (IllegalStateException | NullPointerException e) {
 	    return null;
 	}
+    }
+
+    @Override
+    public Locale getLocale() {
+	return httpServletRequest.getLocale();
     }
 }

@@ -1,15 +1,18 @@
 package com.lapsa.utils.security;
 
 import java.security.Principal;
+import java.util.Locale;
 
 import javax.ws.rs.core.SecurityContext;
 
 class RestSecurityContextChecker implements SecuritySourceChecker {
 
     private final SecurityContext securityContext;
+    private final Locale locale;
 
-    RestSecurityContextChecker(SecurityContext securityContext) {
+    RestSecurityContextChecker(SecurityContext securityContext, Locale locale) {
 	this.securityContext = securityContext;
+	this.locale = locale;
     }
 
     @Override
@@ -37,5 +40,10 @@ class RestSecurityContextChecker implements SecuritySourceChecker {
 	} catch (IllegalStateException | NullPointerException e) {
 	    return null;
 	}
+    }
+
+    @Override
+    public Locale getLocale() {
+	return locale;
     }
 }
