@@ -1,6 +1,7 @@
 package com.lapsa.utils.security;
 
 import java.security.Principal;
+import java.util.StringJoiner;
 
 import javax.ejb.SessionContext;
 import javax.enterprise.inject.spi.CDI;
@@ -220,18 +221,12 @@ public final class SecurityUtils {
 	throw new UnauthorizedException(message);
     }
 
-    private static void _checkRoleGranted(SecuritySourceChecker checker, SecurityRoleGroup... roles) {
-	StringBuffer sb = new StringBuffer("Недостаточно прав доступа.");
-	for (int i = 0; i < roles.length; i++) {
-	    if (i == 0)
-		sb.append(" Требуется как минимум одна из следующих ролей доступа: ");
-	    sb.append(roles[i].toString());
-	    if (i == roles.length - 1)
-		sb.append(".");
-	    else
-		sb.append(", ");
-	}
-	_checkRoleGranted(checker, sb.toString(), roles);
+    private static void _checkRoleGranted(SecuritySourceChecker checker, SecurityRoleGroup... groups) {
+	StringJoiner sj = new StringJoiner(", ",
+		"Недостаточно прав доступа. Требуется как минимум одна из следующих ролей доступа: ", ".");
+	for (SecurityRoleGroup g : groups)
+	    sj.add(g.toString());
+	_checkRoleGranted(checker, sj.toString(), groups);
     }
 
     private static void _checkRoleDenied(SecuritySourceChecker checker, String message, SecurityRoleGroup... roles) {
@@ -240,18 +235,12 @@ public final class SecurityUtils {
 	throw new UnauthorizedException(message);
     }
 
-    private static void _checkRoleDenied(SecuritySourceChecker checker, SecurityRoleGroup... roles) {
-	StringBuffer sb = new StringBuffer("Недостаточно прав доступа.");
-	for (int i = 0; i < roles.length; i++) {
-	    if (i == 0)
-		sb.append(" Доступ для ролей : ");
-	    sb.append(roles[i].toString());
-	    if (i == roles.length - 1)
-		sb.append(" запрещен.");
-	    else
-		sb.append(", ");
-	}
-	_checkRoleDenied(checker, sb.toString(), roles);
+    private static void _checkRoleDenied(SecuritySourceChecker checker, SecurityRoleGroup... groups) {
+	StringJoiner sj = new StringJoiner(", ",
+		"Недостаточно прав доступа. Доступ для ролей: ", "запрещен.");
+	for (SecurityRoleGroup g : groups)
+	    sj.add(g.toString());
+	_checkRoleDenied(checker, sj.toString(), groups);
     }
 
 }
