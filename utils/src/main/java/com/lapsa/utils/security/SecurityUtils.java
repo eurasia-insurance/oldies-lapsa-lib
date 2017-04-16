@@ -71,7 +71,7 @@ public final class SecurityUtils {
     }
 
     public static boolean isInRole(SecurityRoleGroup... roles) {
-	return _isInRole(_determineChecker());
+	return _isInRole(_determineChecker(), roles);
     }
 
     //
@@ -207,8 +207,8 @@ public final class SecurityUtils {
     }
 
     private static boolean _isInRole(SecuritySourceChecker securitySourceChecker, SecurityRoleGroup... roles) {
-	for (SecurityRoleGroup securityRoleGroup : roles)
-	    for (SecurityRole r : securityRoleGroup.getRoles())
+	for (SecurityRoleGroup g : roles)
+	    for (SecurityRole r : g.getRoles())
 		if (securitySourceChecker.isUserInRole(r))
 		    return true;
 	return false;
