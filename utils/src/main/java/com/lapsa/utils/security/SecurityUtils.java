@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import java.util.StringJoiner;
 
 import javax.ejb.SessionContext;
-import javax.enterprise.inject.spi.CDI;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.SecurityContext;
@@ -179,28 +178,7 @@ public final class SecurityUtils {
 	} catch (Exception ignored) {
 	}
 
-	try {
-	    SessionContext ejbSessionContext = CDI.current().select(SessionContext.class).get();
-	    if (ejbSessionContext != null)
-		return new EJBSessionContextChecker(ejbSessionContext, locale);
-	} catch (Exception ignored) {
-	}
-
-	try {
-	    SecurityContext restSecurityContext = CDI.current().select(SecurityContext.class).get();
-	    if (restSecurityContext != null)
-		return new RestSecurityContextChecker(restSecurityContext, locale);
-	} catch (Exception ignored) {
-	}
-
-	try {
-	    HttpServletRequest httpServletRequest = CDI.current().select(HttpServletRequest.class).get();
-	    if (httpServletRequest != null)
-		return new HttpServletRequestChecker(httpServletRequest);
-	} catch (Exception ignored) {
-	}
-
-	throw new RuntimeException("Can not determine security context");
+	throw new RuntimeException("Can not determine context");
     }
 
     private static String _getRemoteUser(SecuritySourceChecker checker) {
