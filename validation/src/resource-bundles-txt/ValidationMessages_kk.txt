@@ -1,0 +1,15 @@
+com.lapsa.validation.DateFuture.message = Дата должна быть в будущем
+com.lapsa.validation.DateLeftAfterRight.message = В датах нарушена хронология. Первая дата должна быть раньше второй
+com.lapsa.validation.DateLeftBeforeRight.message = В датах нарушена хронология. Первая дата должна быть позже второй
+com.lapsa.validation.DatePast.message = Дата должна быть в прошлом
+com.lapsa.validation.DaysAfterNow.message = Слишком ранняя дата
+com.lapsa.validation.DaysBeforeNow.message = Слишком поздняя дата
+com.lapsa.validation.NotEmptyString.message = Обязательное поле
+com.lapsa.validation.NotNullValue.message = Обязательное поле
+com.lapsa.validation.ValidEnumerationValue.message = Некорректное значение
+com.lapsa.validation.ValidDateOfBirth.message = Некорректная дата рождения
+com.lapsa.validation.ValidDateOfIssue.message = Некорректная дата выдачи
+com.lapsa.validation.NotTooYoungYearOfIssue.message = Минимальный допустимый возраст составляет {minAge} лет
+com.lapsa.validation.NotTooOldYearOfIssue.message = Максимальный допустимый возраст составляет {maxAge} лет
+com.lapsa.validation.NotZeroAmount.message = Размер суммы должна быть больше ноля
+com.lapsa.validation.ValidHumanName.message = Некорректное значение. Возможно значение, которое Вы ввели содержит неразрешенные символы

@@ -26,6 +26,9 @@ public abstract class TemporalConverter<T> implements Converter {
 	if (value == null)
 	    return null;
 
+	if (value.trim().isEmpty())
+	    return null;
+
 	DateTimeFormatter df = getDefaultFormatter();
 	if (component instanceof Calendar) {
 	    Calendar cal = (Calendar) component;
@@ -43,6 +46,9 @@ public abstract class TemporalConverter<T> implements Converter {
 	if (value == null)
 	    return null;
 
+	if (value instanceof String)
+	    return (String) value;
+
 	T dateValue;
 	try {
 	    dateValue = clazz.cast(value);
@@ -58,7 +64,7 @@ public abstract class TemporalConverter<T> implements Converter {
 
 	try {
 	    String res = format(dateValue, df);
-	    primefacesSupport(component, res);
+	    // primefacesSupport(component, res);
 	    return res;
 	} catch (DateTimeException e) {
 	    throw new ConverterException(formatErrorMessage(getWich(), context, component, value), e);
@@ -71,6 +77,7 @@ public abstract class TemporalConverter<T> implements Converter {
 		(String) MessageFactory.getLabel(context, component), value != null ? value.toString() : null), "");
     }
 
+    @SuppressWarnings("unused")
     private static void primefacesSupport(UIComponent component, String val) {
 	// PrimeFaces support
 	if (component instanceof Calendar) {
