@@ -15,7 +15,7 @@
 	<name>Lapsa : Parent</name>
 
 	<modules>
-		<module>validation</module>
+		<module>hibernate-validation</module>
 		<module>cdiutils</module>
 		<module>utils</module>
 		<module>faces</module>
@@ -37,7 +37,7 @@
 			<!-- own -->
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>lapsa-validation</artifactId>
+				<artifactId>lapsa-hibernate-validation</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>

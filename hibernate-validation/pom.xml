@@ -7,10 +7,10 @@
 		<version>1.5-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>lapsa-validation</artifactId>
+	<artifactId>lapsa-hibernate-validation</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Lapsa : Validation</name>
+	<name>Lapsa : Hibernate Validation extensions</name>
 
 	<dependencies>
 		<!-- external -->
