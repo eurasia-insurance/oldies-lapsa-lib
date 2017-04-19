@@ -18,6 +18,7 @@
 		<module>validation</module>
 		<module>cdiutils</module>
 		<module>utils</module>
+		<module>faces</module>
 		<module>arquilliantools</module>
 		<module>velocitytools</module>
 	</modules>
@@ -27,6 +28,8 @@
 		<velocity.version>1.7</velocity.version>
 		<velocity-tools.version>2.0</velocity-tools.version>
 		<international-lib.version>2.0.1</international-lib.version>
+		<!-- external -->
+		<primefaces.version>5.3.16</primefaces.version>
 	</properties>
 
 	<dependencyManagement>
@@ -40,6 +43,26 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>lapsa-cdiutils</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>lapsa-utils</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>lapsa-faces</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>lapsa-arquilliantools</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>lapsa-velocitytools</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<!-- internal -->
@@ -63,6 +86,11 @@
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
 				<version>${hibernate-validator.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.primefaces</groupId>
+				<artifactId>primefaces</artifactId>
+				<version>${primefaces.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
