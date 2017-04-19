@@ -26,6 +26,9 @@ public abstract class TemporalConverter<T> implements Converter {
 	if (value == null)
 	    return null;
 
+	if (value.trim().isEmpty())
+	    return null;
+
 	DateTimeFormatter df = getDefaultFormatter();
 	if (component instanceof Calendar) {
 	    Calendar cal = (Calendar) component;
@@ -42,6 +45,9 @@ public abstract class TemporalConverter<T> implements Converter {
     public String getAsString(FacesContext context, UIComponent component, Object value) {
 	if (value == null)
 	    return null;
+	
+	if (value instanceof String)
+	    return (String) value;
 
 	T dateValue;
 	try {
