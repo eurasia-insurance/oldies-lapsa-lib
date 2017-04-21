@@ -117,4 +117,19 @@ public final class TemporalUtils {
     public static final Date toDate(LocalTime localTime, DateBase dateBase) {
 	return toDate(toLocalDateTime(localTime, dateBase));
     }
+
+    // toLocalTime family
+
+    public static final LocalTime toLocalTime(Calendar calendar) {
+	return toLocalTime(toLocalDateTime(calendar));
+    }
+
+    public static final LocalTime toLocalTime(LocalDateTime localDateTime) {
+	return localDateTime == null ? null : localDateTime.toLocalTime();
+    }
+
+    public static final LocalTime toLocalTime(Date date) {
+	return toLocalTime(toLocalDateTime(date));
+    }
+
 }
