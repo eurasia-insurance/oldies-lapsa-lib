@@ -2,6 +2,7 @@ package com.lapsa.utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,6 +10,12 @@ import java.util.Date;
 public final class TemporalUtils {
 
     private static final ZoneId DEFAULT_TZ = ZoneId.systemDefault();
+
+    public static enum DateBase {
+	START_OF_EPOCH, TODAY, FAR_PAST;
+    }
+
+    // toLocalDateTime family
 
     public static final LocalDateTime toLocalDateTime(Date date) {
 	return date == null ? null : LocalDateTime.ofInstant(date.toInstant(), DEFAULT_TZ);
@@ -22,6 +29,33 @@ public final class TemporalUtils {
 	return localDate == null ? null : localDate.atStartOfDay();
     }
 
+    public static final LocalDateTime toLocalDateTime(LocalTime localTime) {
+	return toLocalDateTime(localTime, DateBase.START_OF_EPOCH);
+    }
+
+    public static final LocalDateTime toLocalDateTime(LocalTime localTime, DateBase dateBase) {
+	if (localTime == null)
+	    return null;
+	if (dateBase == null)
+	    return null;
+	LocalDate base;
+	switch (dateBase) {
+	case TODAY:
+	    base = LocalDate.now();
+	    break;
+	case FAR_PAST:
+	    base = LocalDate.MIN;
+	    break;
+	case START_OF_EPOCH:
+	default:
+	    base = LocalDate.ofEpochDay(0);
+	    break;
+	}
+	return localTime.atDate(base);
+    }
+
+    // toLocalDate family
+
     public static final LocalDate toLocalDate(Date date) {
 	return date == null ? null : toLocalDate(toLocalDateTime(date));
     }
@@ -33,6 +67,8 @@ public final class TemporalUtils {
     public static final LocalDate toLocalDate(LocalDateTime localDateTime) {
 	return localDateTime == null ? null : localDateTime.toLocalDate();
     }
+
+    // toCalendar family
 
     public static final Calendar toCalendar(Date date) {
 	if (date == null)
@@ -50,6 +86,16 @@ public final class TemporalUtils {
 	return toCalendar(toDate(localDateTime));
     }
 
+    public static final Calendar toCalendar(LocalTime localTime) {
+	return toCalendar(toDate(toLocalDateTime(localTime)));
+    }
+
+    public static final Calendar toCalendar(LocalTime localTime, DateBase dateBase) {
+	return toCalendar(toDate(toLocalDateTime(localTime, dateBase)));
+    }
+
+    // toDate family
+
     public static final Date toDate(Calendar calendar) {
 	return calendar == null ? null : calendar.getTime();
     }
@@ -64,4 +110,11 @@ public final class TemporalUtils {
 		: Date.from(localDateTime.atZone(DEFAULT_TZ).toInstant());
     }
 
+    public static final Date toDate(LocalTime localTime) {
+	return toDate(toLocalDateTime(localTime));
+    }
+
+    public static final Date toDate(LocalTime localTime, DateBase dateBase) {
+	return toDate(toLocalDateTime(localTime, dateBase));
+    }
 }
