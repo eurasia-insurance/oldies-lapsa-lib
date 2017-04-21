@@ -8,22 +8,28 @@ import com.lapsa.validation.DateFuture;
 
 public class DateFutureConstraintValidator extends ATemporalConstraintValidator<DateFuture> {
 
+    private boolean allowNow;
+
     @Override
     public void initialize(DateFuture constraintAnnotation) {
+	this.allowNow = constraintAnnotation.allowNow();
     }
 
     @Override
     protected boolean validate(LocalDateTime value) {
-	return value.isAfter(LocalDateTime.now());
+	LocalDateTime now = LocalDateTime.now();
+	return value.isAfter(now) || (allowNow && value.isEqual(now));
     }
 
     @Override
     protected boolean validate(LocalDate value) {
-	return value.isAfter(LocalDate.now());
+	LocalDate now = LocalDate.now();
+	return value.isAfter(now) || (allowNow && value.isEqual(now));
     }
 
     @Override
     protected boolean validate(LocalTime value) {
-	return value.isAfter(LocalTime.now());
+	LocalTime now = LocalTime.now();
+	return value.isAfter(now) || (allowNow && value.equals(now));
     }
 }
