@@ -6,7 +6,8 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<cc:interface>
-		<cc:attribute name="value" required="true" type="java.time.LocalDateTime" />
+		<cc:attribute name="value" required="true"
+			type="java.time.LocalDateTime" />
 		<cc:attribute name="process" required="false" type="java.lang.String" />
 		<cc:attribute name="update" required="false" type="java.lang.String" />
 		<cc:attribute name="placeholder" required="false"
@@ -19,13 +20,15 @@
 
 	<cc:implementation>
 		<p:calendar id="value" value="#{cc.attrs.value}" showOn="focus"
-			navigator="true" title="#{cc.attrs.title}" pattern="dd.MM.yyyy HH:mm:ss"
-			onfocus="select()" converter="localDateTimeConverter"
+			navigator="true" title="#{cc.attrs.title}"
+			pattern="dd.MM.yyyy HH:mm:ss" onfocus="select()"
+			converter="localDateTimeConverter"
 			placeholder="#{cc.attrs.placeholder}">
 			<p:ajax event="dateSelect" process="#{cc.attrs.process}"
 				update="#{cc.attrs.update}" listener="#{cc.attrs.changedListener}" />
 			<p:ajax event="keyup" delay="700" process="#{cc.attrs.process}"
 				update="#{cc.attrs.update}" listener="#{cc.attrs.changedListener}" />
+			<cc:insertChildren />
 		</p:calendar>
 	</cc:implementation>
 
