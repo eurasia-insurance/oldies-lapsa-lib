@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 public final class TemporalUtils {
 
@@ -22,7 +23,8 @@ public final class TemporalUtils {
     }
 
     public static final LocalDateTime toLocalDateTime(Calendar calendar) {
-	return calendar == null ? null : LocalDateTime.ofInstant(calendar.toInstant(), DEFAULT_TZ);
+	return calendar == null ? null
+		: LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId());
     }
 
     public static final LocalDateTime toLocalDateTime(LocalDate localDate) {
@@ -73,7 +75,7 @@ public final class TemporalUtils {
     public static final Calendar toCalendar(Date date) {
 	if (date == null)
 	    return null;
-	Calendar calendar = Calendar.getInstance();
+	Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone(DEFAULT_TZ));
 	calendar.setTime(date);
 	return calendar;
     }
