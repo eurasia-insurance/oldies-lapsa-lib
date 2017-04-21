@@ -8,23 +8,29 @@ import com.lapsa.validation.DatePast;
 
 public class DatePastConstraintValidator extends ATemporalConstraintValidator<DatePast> {
 
+    private boolean allowNow;
+
     @Override
     public void initialize(DatePast constraintAnnotation) {
+	this.allowNow = constraintAnnotation.allowNow();
     }
 
     @Override
     protected boolean validate(LocalDateTime value) {
-	return value.isBefore(LocalDateTime.now());
+	LocalDateTime now = LocalDateTime.now();
+	return value.isBefore(now) || (allowNow && value.isEqual(now));
     }
 
     @Override
     protected boolean validate(LocalDate value) {
-	return value.isBefore(LocalDate.now());
+	LocalDate now = LocalDate.now();
+	return value.isBefore(now) || (allowNow && value.isEqual(now));
     }
 
     @Override
     protected boolean validate(LocalTime value) {
-	return value.isBefore(LocalTime.now());
+	LocalTime now = LocalTime.now();
+	return value.isBefore(now) || (allowNow && value.equals(now));
     }
 
 }

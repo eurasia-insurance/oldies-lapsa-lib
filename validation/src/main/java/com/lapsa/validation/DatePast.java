@@ -16,6 +16,8 @@ import com.lapsa.validation.constraints.DatePastConstraintValidator;
 @Constraint(validatedBy = DatePastConstraintValidator.class)
 public @interface DatePast {
 
+    boolean allowNow() default false;
+
     String message() default "{com.lapsa.validation.DatePast.message}";
 
     Class<?>[] groups() default {};

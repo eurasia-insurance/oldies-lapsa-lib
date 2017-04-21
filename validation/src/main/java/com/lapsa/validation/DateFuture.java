@@ -16,6 +16,8 @@ import com.lapsa.validation.constraints.DateFutureConstraintValidator;
 @Constraint(validatedBy = DateFutureConstraintValidator.class)
 public @interface DateFuture {
 
+    boolean allowNow() default false;
+    
     String message() default "{com.lapsa.validation.DateFuture.message}";
 
     Class<?>[] groups() default {};
