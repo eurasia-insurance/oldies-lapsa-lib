@@ -20,6 +20,12 @@
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>lapsa-utils</artifactId>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
 		<!-- internal -->
 		<dependency>
 			<groupId>com.lapsa.international-lib</groupId>

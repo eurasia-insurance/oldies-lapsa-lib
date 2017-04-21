@@ -22,7 +22,6 @@ import org.apache.velocity.runtime.RuntimeServices;
 import org.apache.velocity.runtime.RuntimeSingleton;
 import org.apache.velocity.runtime.parser.ParseException;
 import org.apache.velocity.runtime.parser.node.SimpleNode;
-import org.apache.velocity.tools.generic.DateTool;
 import org.apache.velocity.util.ClassUtils;
 
 import com.lapsa.localization.LocalizationLanguage;
@@ -50,7 +49,7 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
 	// DateTool
 	{
-	    DateTool dt = new DateTool();
+	    Java8TemporalTypesDateTool dt = new Java8TemporalTypesDateTool();
 	    Map<String, Object> dtConf = new HashMap<>();
 	    dtConf.put("format", "full_date");
 	    dtConf.put("locale", language.getLocale());
