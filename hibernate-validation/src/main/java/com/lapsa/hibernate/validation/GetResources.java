@@ -1,4 +1,4 @@
-package com.lapsa.lapsa.validation;
+package com.lapsa.hibernate.validation;
 
 import java.io.IOException;
 import java.net.URL;
