@@ -14,7 +14,7 @@ public class RequestAcceptLanguageMessageInterpolator implements MessageInterpol
 
     @Override
     public String interpolate(String message, Context context) {
-	return delegate.interpolate(message, context, RequestAcceptLanguage.getLocale());
+	return delegate.interpolate(message, context, RequestAcceptLanguage.getRequestLocale());
     }
 
     @Override

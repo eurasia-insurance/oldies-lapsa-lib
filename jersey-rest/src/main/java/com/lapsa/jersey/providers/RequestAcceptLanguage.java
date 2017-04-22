@@ -4,18 +4,18 @@ import java.util.Locale;
 
 public class RequestAcceptLanguage {
 
-    private static final ThreadLocal<Locale> LOCALE = new ThreadLocal<Locale>();
+    private static final ThreadLocal<Locale> REQUEST_LOCALE = new ThreadLocal<Locale>();
 
-    public static Locale getLocale() {
-	return LOCALE.get() == null ? Locale.getDefault() : LOCALE.get();
+    public static Locale getRequestLocale() {
+	return REQUEST_LOCALE.get() == null ? Locale.getDefault() : REQUEST_LOCALE.get();
     }
 
-    public static void setLocale(Locale locale) {
-	LOCALE.set(locale);
+    public static void setRequestLocale(Locale requestLocale) {
+	REQUEST_LOCALE.set(requestLocale);
     }
 
-    public static void unsetLocale() {
-	LOCALE.remove();
+    public static void unsetRequestLocale() {
+	REQUEST_LOCALE.remove();
     }
 
 }

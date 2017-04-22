@@ -23,9 +23,9 @@ public class ValidationMessagesLocalizationProvider
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
 	if (headers.getAcceptableLanguages().isEmpty())
-	    RequestAcceptLanguage.unsetLocale();
+	    RequestAcceptLanguage.unsetRequestLocale();
 	else
-	    RequestAcceptLanguage.setLocale(headers.getAcceptableLanguages().get(0));
+	    RequestAcceptLanguage.setRequestLocale(headers.getAcceptableLanguages().get(0));
     }
 
     @Override
