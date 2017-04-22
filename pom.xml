@@ -32,7 +32,7 @@
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<!-- Glassfish -->
-		<hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
+		<gf-embeded.hibernate-validator.version>5.0.0.Final</gf-embeded.hibernate-validator.version>
 		<gf-embeded.el.version>2.2.6</gf-embeded.el.version>
 		<gf-embeded.jersey.version>2.10.4</gf-embeded.jersey.version>
 	</properties>
@@ -98,16 +98,16 @@
 				<version>${velocity-tools.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-validator</artifactId>
-				<version>${hibernate-validator.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.primefaces</groupId>
 				<artifactId>primefaces</artifactId>
 				<version>${primefaces.version}</version>
 			</dependency>
 			<!-- Glassfish -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${gf-embeded.hibernate-validator.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.glassfish.jersey.ext</groupId>
 				<artifactId>jersey-bean-validation</artifactId>

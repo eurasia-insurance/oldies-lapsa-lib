@@ -13,7 +13,7 @@
 	<name>Lapsa : Hibernate Validation extensions</name>
 
 	<dependencies>
-		<!-- external -->
+		<!-- Glassfish -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
