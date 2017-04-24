@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-import com.lapsa.validation.DatePast;
+import com.lapsa.validation.TemporalPast;
 
-public class DatePastConstraintValidator extends ATemporalConstraintValidator<DatePast> {
+public class TemporalPastConstraintValidator extends ATemporalConstraintValidator<TemporalPast> {
 
     private boolean allowNow;
 
     @Override
-    public void initialize(DatePast constraintAnnotation) {
+    public void initialize(TemporalPast constraintAnnotation) {
 	this.allowNow = constraintAnnotation.allowNow();
     }
 

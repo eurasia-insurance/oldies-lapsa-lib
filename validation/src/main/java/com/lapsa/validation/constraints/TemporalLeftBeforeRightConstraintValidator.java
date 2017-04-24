@@ -3,12 +3,12 @@ package com.lapsa.validation.constraints;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import com.lapsa.validation.DateLeftBeforeRight;
+import com.lapsa.validation.TemporalLeftBeforeRight;
 
-public class DateLeftBeforeRightConstraintValidator extends ATemporalLeftRightConstraintValidator<DateLeftBeforeRight> {
+public class TemporalLeftBeforeRightConstraintValidator extends ATemporalLeftRightConstraintValidator<TemporalLeftBeforeRight> {
 
     @Override
-    public void initialize(DateLeftBeforeRight constraintAnnotation) {
+    public void initialize(TemporalLeftBeforeRight constraintAnnotation) {
     }
 
     @Override

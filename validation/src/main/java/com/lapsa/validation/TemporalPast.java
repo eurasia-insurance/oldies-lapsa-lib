@@ -9,16 +9,16 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.lapsa.validation.constraints.DatePastConstraintValidator;
+import com.lapsa.validation.constraints.TemporalPastConstraintValidator;
 
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
-@Constraint(validatedBy = DatePastConstraintValidator.class)
-public @interface DatePast {
+@Constraint(validatedBy = TemporalPastConstraintValidator.class)
+public @interface TemporalPast {
 
     boolean allowNow() default false;
 
-    String message() default "{com.lapsa.validation.DatePast.message}";
+    String message() default "{com.lapsa.validation.TemporalPast.message}";
 
     Class<?>[] groups() default {};
 

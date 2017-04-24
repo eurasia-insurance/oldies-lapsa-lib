@@ -1,7 +1,7 @@
-com.lapsa.validation.DateFuture.message = Дата должна быть в будущем
-com.lapsa.validation.DateLeftAfterRight.message = В датах нарушена хронология. Первая дата должна быть раньше второй
-com.lapsa.validation.DateLeftBeforeRight.message = В датах нарушена хронология. Первая дата должна быть позже второй
-com.lapsa.validation.DatePast.message = Дата должна быть в прошлом
+com.lapsa.validation.TemporalFuture.message = Дата должна быть в будущем
+com.lapsa.validation.TemporalLeftAfterRight.message = В датах нарушена хронология. Первая дата должна быть раньше второй
+com.lapsa.validation.TemporalLeftBeforeRight.message = В датах нарушена хронология. Первая дата должна быть позже второй
+com.lapsa.validation.TemporalPast.message = Дата должна быть в прошлом
 com.lapsa.validation.DaysAfterNow.message = Слишком ранняя дата
 com.lapsa.validation.DaysBeforeNow.message = Слишком поздняя дата
 com.lapsa.validation.NotEmptyString.message = Обязательное поле

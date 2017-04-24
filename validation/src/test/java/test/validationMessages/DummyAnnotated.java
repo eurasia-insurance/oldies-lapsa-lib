@@ -1,9 +1,9 @@
 package test.validationMessages;
 
-import com.lapsa.validation.DateFuture;
-import com.lapsa.validation.DateLeftAfterRight;
-import com.lapsa.validation.DateLeftBeforeRight;
-import com.lapsa.validation.DatePast;
+import com.lapsa.validation.TemporalFuture;
+import com.lapsa.validation.TemporalLeftAfterRight;
+import com.lapsa.validation.TemporalLeftBeforeRight;
+import com.lapsa.validation.TemporalPast;
 import com.lapsa.validation.DaysAfterNow;
 import com.lapsa.validation.DaysBeforeNow;
 import com.lapsa.validation.NotEmptyString;
@@ -16,10 +16,10 @@ import com.lapsa.validation.ValidHumanName;
 
 public interface DummyAnnotated {
 
-    @DateFuture
-    @DateLeftAfterRight
-    @DateLeftBeforeRight
-    @DatePast
+    @TemporalFuture
+    @TemporalLeftAfterRight
+    @TemporalLeftBeforeRight
+    @TemporalPast
     @DaysAfterNow(5)
     @DaysBeforeNow(5)
     @NotEmptyString
