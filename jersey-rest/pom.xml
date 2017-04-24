@@ -14,6 +14,13 @@
 	<name>Lapsa : Jersey REST extensions</name>
 
 	<dependencies>
+		<!-- internal international -->
+		<dependency>
+			<groupId>com.lapsa.international-lib</groupId>
+			<artifactId>international-core</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
 		<!-- Glassfish -->
 		<dependency>
 			<groupId>org.glassfish.jersey.ext</groupId>
