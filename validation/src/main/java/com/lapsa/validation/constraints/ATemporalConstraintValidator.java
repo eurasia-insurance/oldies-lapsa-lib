@@ -16,6 +16,10 @@ import javax.validation.ValidationException;
 public abstract class ATemporalConstraintValidator<A extends Annotation> implements ConstraintValidator<A, Object> {
 
     @Override
+    public void initialize(A a) {
+    }
+
+    @Override
     public boolean isValid(Object value, ConstraintValidatorContext context) {
 	if (value == null)
 	    return true;
@@ -29,17 +33,23 @@ public abstract class ATemporalConstraintValidator<A extends Annotation> impleme
 	    return validate((LocalDate) value);
 	if (value instanceof LocalDateTime)
 	    return validate((LocalDateTime) value);
-	return true;
+	throw unsupportedType(value.getClass());
     }
 
-    protected static ValidationException unsupportedType(Class<?> clazz) {
+    private static ValidationException unsupportedType(Class<?> clazz) {
 	return new ValidationException(String.format("%1$s isn't supported for this constraint", clazz));
     }
 
-    protected abstract boolean validate(LocalDateTime value);
+    protected boolean validate(LocalDateTime value) {
+	throw unsupportedType(value.getClass());
+    }
 
-    protected abstract boolean validate(LocalDate value);
+    protected boolean validate(LocalDate value) {
+	throw unsupportedType(value.getClass());
+    }
 
-    protected abstract boolean validate(LocalTime value);
+    protected boolean validate(LocalTime value) {
+	throw unsupportedType(value.getClass());
+    }
 
 }

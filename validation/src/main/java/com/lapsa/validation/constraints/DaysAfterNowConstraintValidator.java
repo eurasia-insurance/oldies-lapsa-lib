@@ -2,7 +2,6 @@ package com.lapsa.validation.constraints;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 import com.lapsa.validation.DaysAfterNow;
 import com.lapsa.validation.Mode;
@@ -39,10 +38,4 @@ public class DaysAfterNowConstraintValidator extends ATemporalConstraintValidato
 	    return value.isAfter(LocalDate.now().plusDays(days));
 	}
     }
-
-    @Override
-    protected boolean validate(LocalTime value) {
-	throw unsupportedType(value.getClass());
-    }
-
 }

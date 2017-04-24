@@ -9,13 +9,13 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.lapsa.validation.constraints.DateLeftBeforeRightConstraintValidator;
+import com.lapsa.validation.constraints.TemporalLeftAfterRightConstraintValidator;
 
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
-@Constraint(validatedBy = DateLeftBeforeRightConstraintValidator.class)
-public @interface DateLeftBeforeRight {
-    String message() default "{com.lapsa.validation.DateLeftBeforeRight.message}";
+@Constraint(validatedBy = TemporalLeftAfterRightConstraintValidator.class)
+public @interface TemporalLeftAfterRight {
+    String message() default "{com.lapsa.validation.TemporalLeftAfterRight.message}";
 
     Class<?>[] groups() default {};
 
