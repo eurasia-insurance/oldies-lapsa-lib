@@ -1,21 +1,18 @@
 package com.lapsa.jersey.providers;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
-public class RequestAcceptLanguage {
+public class RequestAcceptableLanguages {
 
-    private static final ThreadLocal<Locale> REQUEST_LOCALE = new ThreadLocal<Locale>();
+    private static final ThreadLocal<List<Locale>> LOCALES_LIST = new ThreadLocal<List<Locale>>();
 
-    public static Locale getRequestLocale() {
-	return REQUEST_LOCALE.get() == null ? Locale.getDefault() : REQUEST_LOCALE.get();
+    public static List<Locale> getLocalesList() {
+	return LOCALES_LIST.get() == null ? Collections.emptyList() : LOCALES_LIST.get();
     }
 
-    public static void setRequestLocale(Locale requestLocale) {
-	REQUEST_LOCALE.set(requestLocale);
+    public static void setLocalesList(List<Locale> localesList) {
+	LOCALES_LIST.set(localesList);
     }
-
-    public static void unsetRequestLocale() {
-	REQUEST_LOCALE.remove();
-    }
-
 }

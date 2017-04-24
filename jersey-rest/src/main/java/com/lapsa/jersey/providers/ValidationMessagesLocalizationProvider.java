@@ -22,17 +22,14 @@ public class ValidationMessagesLocalizationProvider
 
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
-	if (headers.getAcceptableLanguages().isEmpty())
-	    RequestAcceptLanguage.unsetRequestLocale();
-	else
-	    RequestAcceptLanguage.setRequestLocale(headers.getAcceptableLanguages().get(0));
+	RequestAcceptableLanguages.setLocalesList(headers.getAcceptableLanguages());
     }
 
     @Override
     public ValidationConfig getContext(Class<?> type) {
 	final ValidationConfig config = new ValidationConfig();
 	MessageInterpolator delegate = Validation.buildDefaultValidatorFactory().getMessageInterpolator();
-	MessageInterpolator interpolator = new RequestAcceptLanguageMessageInterpolator(delegate);
+	MessageInterpolator interpolator = new RequestAcceptableLanguagesMessageInterpolator(delegate);
 	config.messageInterpolator(interpolator);
 	return config;
     }
