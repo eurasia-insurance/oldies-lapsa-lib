@@ -33,7 +33,7 @@ public abstract class ATemporalConstraintValidator<A extends Annotation> impleme
 	    return validate((LocalDate) value);
 	if (value instanceof LocalDateTime)
 	    return validate((LocalDateTime) value);
-	return true;
+	throw unsupportedType(value.getClass());
     }
 
     private static ValidationException unsupportedType(Class<?> clazz) {
