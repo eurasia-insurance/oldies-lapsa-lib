@@ -6,7 +6,6 @@ com.lapsa.validation.DaysAfterNow.message = Слишком ранняя дата
 com.lapsa.validation.DaysBeforeNow.message = Слишком поздняя дата
 com.lapsa.validation.NotEmptyString.message = Обязательное поле
 com.lapsa.validation.NotNullValue.message = Обязательное поле
-com.lapsa.validation.ValidEnumerationValue.message = Некорректное значение
 com.lapsa.validation.ValidDateOfBirth.message = Некорректная дата рождения
 com.lapsa.validation.ValidDateOfIssue.message = Некорректная дата выдачи
 com.lapsa.validation.NotTooYoungYearOfIssue.message = Минимальный допустимый возраст составляет {minAge} лет
