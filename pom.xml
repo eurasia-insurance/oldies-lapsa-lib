@@ -26,11 +26,12 @@
 	</modules>
 
 	<properties>
-		<velocity.version>1.7</velocity.version>
-		<velocity-tools.version>2.0</velocity-tools.version>
+		<!-- APIs -->
 		<international-lib.version>2.2</international-lib.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
+		<velocity.version>1.7</velocity.version>
+		<velocity-tools.version>2.0</velocity-tools.version>
 		<!-- Glassfish -->
 		<gf-embeded.hibernate-validator.version>5.0.0.Final</gf-embeded.hibernate-validator.version>
 		<gf-embeded.el.version>2.2.6</gf-embeded.el.version>
