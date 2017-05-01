@@ -1,14 +1,14 @@
-com.lapsa.validation.TemporalFuture.message = Дата должна быть в будущем
-com.lapsa.validation.TemporalLeftAfterRight.message = В датах нарушена хронология. Первая дата должна быть раньше второй
-com.lapsa.validation.TemporalLeftBeforeRight.message = В датах нарушена хронология. Первая дата должна быть позже второй
-com.lapsa.validation.TemporalPast.message = Дата должна быть в прошлом
-com.lapsa.validation.DaysAfterNow.message = Слишком ранняя дата
-com.lapsa.validation.DaysBeforeNow.message = Слишком поздняя дата
-com.lapsa.validation.NotEmptyString.message = Обязательное поле
-com.lapsa.validation.NotNullValue.message = Обязательное поле
-com.lapsa.validation.ValidDateOfBirth.message = Некорректная дата рождения
-com.lapsa.validation.ValidDateOfIssue.message = Некорректная дата выдачи
-com.lapsa.validation.NotTooYoungYearOfIssue.message = Минимальный допустимый возраст составляет {minAge} лет
-com.lapsa.validation.NotTooOldYearOfIssue.message = Максимальный допустимый возраст составляет {maxAge} лет
-com.lapsa.validation.NotZeroAmount.message = Размер суммы должна быть больше ноля
-com.lapsa.validation.ValidHumanName.message = Некорректное значение. Возможно значение, которое Вы ввели содержит неразрешенные символы
+com.lapsa.validation.TemporalFuture.message = =KAZ= Дата должна быть в будущем
+com.lapsa.validation.TemporalLeftAfterRight.message = =KAZ= В датах нарушена хронология. Первая дата должна быть раньше второй
+com.lapsa.validation.TemporalLeftBeforeRight.message = =KAZ= В датах нарушена хронология. Первая дата должна быть позже второй
+com.lapsa.validation.TemporalPast.message = =KAZ= Дата должна быть в прошлом
+com.lapsa.validation.DaysAfterNow.message = =KAZ= Слишком ранняя дата
+com.lapsa.validation.DaysBeforeNow.message = =KAZ= Слишком поздняя дата
+com.lapsa.validation.NotEmptyString.message = =KAZ= Обязательное поле
+com.lapsa.validation.NotNullValue.message = =KAZ= Обязательное поле
+com.lapsa.validation.ValidDateOfBirth.message = =KAZ= Некорректная дата рождения
+com.lapsa.validation.ValidDateOfIssue.message = =KAZ= Некорректная дата выдачи
+com.lapsa.validation.NotTooYoungYearOfIssue.message = =KAZ= Минимальный допустимый возраст составляет {minAge} лет
+com.lapsa.validation.NotTooOldYearOfIssue.message = =KAZ= Максимальный допустимый возраст составляет {maxAge} лет
+com.lapsa.validation.NotZeroAmount.message = =KAZ= Размер суммы должна быть больше ноля
+com.lapsa.validation.ValidHumanName.message = =KAZ= Некорректное значение. Возможно значение, которое Вы ввели содержит неразрешенные символы
