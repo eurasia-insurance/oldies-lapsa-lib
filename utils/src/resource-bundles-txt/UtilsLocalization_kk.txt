@@ -1,4 +1,4 @@
-com.lapsa.utils.UtilsMessage.SECURITY_ROLES_DENIED_PREFIX  = =KAZ= Недостаточно прав доступа. Доступ для ролей: 
-com.lapsa.utils.UtilsMessage.SECURITY_ROLES_DENIED_SUFFIX  = =KAZ= запрещен.
-com.lapsa.utils.UtilsMessage.SECURITY_ROLES_GRANTED_PREFIX = =KAZ= Недостаточно прав доступа. Требуется как минимум одна из следующих ролей доступа: 
-com.lapsa.utils.UtilsMessage.SECURITY_ROLES_GRANTED_SUFFIX = =KAZ= .
+com.lapsa.utils.UtilsMessage.SECURITY_ROLES_DENIED_PREFIX  = Кіру құқықтары жеткіліксіз. Рольдерге арналған кіру: 
+com.lapsa.utils.UtilsMessage.SECURITY_ROLES_DENIED_SUFFIX  = тыйым салынған.
+com.lapsa.utils.UtilsMessage.SECURITY_ROLES_GRANTED_PREFIX = Кіру құқықтары жеткіліксіз. Ең аз дегенде кірудің келесі рольдердің бірі қажет етіледі: 
+com.lapsa.utils.UtilsMessage.SECURITY_ROLES_GRANTED_SUFFIX = .

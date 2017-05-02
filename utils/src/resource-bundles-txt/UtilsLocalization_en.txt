@@ -1,4 +1,4 @@
-com.lapsa.utils.UtilsMessage.SECURITY_ROLES_DENIED_PREFIX  = =ENG= Недостаточно прав доступа. Доступ для ролей: 
-com.lapsa.utils.UtilsMessage.SECURITY_ROLES_DENIED_SUFFIX  = =ENG= запрещен.
-com.lapsa.utils.UtilsMessage.SECURITY_ROLES_GRANTED_PREFIX = =ENG= Недостаточно прав доступа. Требуется как минимум одна из следующих ролей доступа: 
-com.lapsa.utils.UtilsMessage.SECURITY_ROLES_GRANTED_SUFFIX = =ENG= .
+com.lapsa.utils.UtilsMessage.SECURITY_ROLES_DENIED_PREFIX  = Insufficient Access authorization. Access rights for roles: 
+com.lapsa.utils.UtilsMessage.SECURITY_ROLES_DENIED_SUFFIX  = denied
+com.lapsa.utils.UtilsMessage.SECURITY_ROLES_GRANTED_PREFIX = Insufficient Access authorization. At least one of the following access roles required: 
+com.lapsa.utils.UtilsMessage.SECURITY_ROLES_GRANTED_SUFFIX = .
