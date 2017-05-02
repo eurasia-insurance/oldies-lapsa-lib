@@ -1,14 +1,14 @@
-com.lapsa.validation.TemporalFuture.message = =KAZ= Дата должна быть в будущем
-com.lapsa.validation.TemporalLeftAfterRight.message = =KAZ= В датах нарушена хронология. Первая дата должна быть раньше второй
-com.lapsa.validation.TemporalLeftBeforeRight.message = =KAZ= В датах нарушена хронология. Первая дата должна быть позже второй
-com.lapsa.validation.TemporalPast.message = =KAZ= Дата должна быть в прошлом
-com.lapsa.validation.DaysAfterNow.message = =KAZ= Слишком ранняя дата
-com.lapsa.validation.DaysBeforeNow.message = =KAZ= Слишком поздняя дата
-com.lapsa.validation.NotEmptyString.message = =KAZ= Обязательное поле
-com.lapsa.validation.NotNullValue.message = =KAZ= Обязательное поле
-com.lapsa.validation.ValidDateOfBirth.message = =KAZ= Некорректная дата рождения
-com.lapsa.validation.ValidDateOfIssue.message = =KAZ= Некорректная дата выдачи
-com.lapsa.validation.NotTooYoungYearOfIssue.message = =KAZ= Минимальный допустимый возраст составляет {minAge} лет
-com.lapsa.validation.NotTooOldYearOfIssue.message = =KAZ= Максимальный допустимый возраст составляет {maxAge} лет
-com.lapsa.validation.NotZeroAmount.message = =KAZ= Размер суммы должна быть больше ноля
-com.lapsa.validation.ValidHumanName.message = =KAZ= Некорректное значение. Возможно значение, которое Вы ввели содержит неразрешенные символы
+com.lapsa.validation.TemporalFuture.message = Күні келешекте болуы тиіс
+com.lapsa.validation.TemporalLeftAfterRight.message = Күндерде хронология бұзылған. Бірінші күн екіншісінен бұрын болуы тиіс
+com.lapsa.validation.TemporalLeftBeforeRight.message = Күндерде хронология бұзылған. Бірінші күн екіншісінен кейін болуы тиіс
+com.lapsa.validation.TemporalPast.message = Күн өткен уақытта болуы тиіс
+com.lapsa.validation.DaysAfterNow.message = Тым ерте күн
+com.lapsa.validation.DaysBeforeNow.message = Тым кеш күн
+com.lapsa.validation.NotEmptyString.message = Міндетті алаң
+com.lapsa.validation.NotNullValue.message = Міндетті алаң
+com.lapsa.validation.ValidDateOfBirth.message = Туылған күні дұрыс емес
+com.lapsa.validation.ValidDateOfIssue.message = Берілген күні дұрыс емес
+com.lapsa.validation.NotTooYoungYearOfIssue.message = Ең аз рұқсат етілген жас {minAge}  жасты құрайды
+com.lapsa.validation.NotTooOldYearOfIssue.message = Ең көп рұқсат етілген жас {maxAge} жасты құрайды
+com.lapsa.validation.NotZeroAmount.message = Соманың мөлшері нөлден үлкен болуы тиіс
+com.lapsa.validation.ValidHumanName.message = Дұрыс емес мән. Сіз кіргізген мәнде рұқсат етілмеген символдар болуы мүмкін.
