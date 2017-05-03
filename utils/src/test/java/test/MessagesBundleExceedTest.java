@@ -1,6 +1,5 @@
 package test;
 
-import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 import java.util.Enumeration;
@@ -17,8 +16,6 @@ public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
     public void testNoExcessRecordsRussian() {
 	Locale locale = getLocale(LANG_RU);
 	ResourceBundle resources = getResourceBundle(UtilsMessage.BUNDLE_BASENAME, locale);
-	assertThat(resources.getString(UtilsMessage.SECURITY_ROLES_GRANTED_SUFFIX.canonicalName()),
-		allOf(not(nullValue()), is(".")));
 	testBundle(resources);
     }
 
@@ -26,8 +23,6 @@ public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
     public void testNoExcessRecordsEnglish() {
 	Locale locale = getLocale(LANG_EN);
 	ResourceBundle resources = getResourceBundle(UtilsMessage.BUNDLE_BASENAME, locale);
-	assertThat(resources.getString(UtilsMessage.SECURITY_ROLES_GRANTED_SUFFIX.canonicalName()),
-		allOf(not(nullValue()), is(".")));
 	testBundle(resources);
     }
 
@@ -35,8 +30,6 @@ public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
     public void testNoExcessRecordsKazakh() {
 	Locale locale = getLocale(LANG_KK);
 	ResourceBundle resources = getResourceBundle(UtilsMessage.BUNDLE_BASENAME, locale);
-	assertThat(resources.getString(UtilsMessage.SECURITY_ROLES_GRANTED_SUFFIX.canonicalName()),
-		allOf(not(nullValue()), is(".")));
 	testBundle(resources);
     }
 
