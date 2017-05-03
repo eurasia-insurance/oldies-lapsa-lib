@@ -27,7 +27,7 @@
 
 	<properties>
 		<!-- APIs -->
-		<international-lib.version>3.0-SNAPSHOT</international-lib.version>
+		<international-lib.version>3.0</international-lib.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<velocity.version>1.7</velocity.version>
