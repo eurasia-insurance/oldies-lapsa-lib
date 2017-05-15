@@ -21,6 +21,7 @@
 		<module>cdiutils</module>
 		<module>utils</module>
 		<module>faces</module>
+		<module>jpa</module>
 		<module>arquilliantools</module>
 		<module>velocitytools</module>
 	</modules>
