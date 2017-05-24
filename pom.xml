@@ -9,7 +9,7 @@
 
 	<groupId>com.lapsa.lapsa-lib</groupId>
 	<artifactId>parent</artifactId>
-	<version>2.1</version>
+	<version>2.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Lapsa : Parent</name>
@@ -126,7 +126,7 @@
 	<scm>
 		<connection>scm:git:https://gitlab.lapsa.tech/lapsa/lapsa-lib.git</connection>
 		<developerConnection>scm:git:https://gitlab.lapsa.tech/lapsa/lapsa-lib.git</developerConnection>
-		<tag>v2.1</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
