@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import org.apache.velocity.VelocityContext;
 
-import com.lapsa.localization.LocalizationLanguage;
+import com.lapsa.international.localization.LocalizationLanguage;
 
 public interface LapsaVelocityTools {
 

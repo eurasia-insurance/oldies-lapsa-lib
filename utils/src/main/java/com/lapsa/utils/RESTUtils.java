@@ -6,7 +6,7 @@ import javax.ws.rs.core.CacheControl;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import com.lapsa.localization.LocalizationLanguage;
+import com.lapsa.international.localization.LocalizationLanguage;
 
 public final class RESTUtils {
     public static final String DEFAULT_ENCODING = "UTF-8";

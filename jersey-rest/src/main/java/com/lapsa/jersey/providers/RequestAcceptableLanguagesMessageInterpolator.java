@@ -5,7 +5,7 @@ import java.util.Locale;
 
 import javax.validation.MessageInterpolator;
 
-import com.lapsa.localization.LocalizationLanguage;
+import com.lapsa.international.localization.LocalizationLanguage;
 
 public class RequestAcceptableLanguagesMessageInterpolator implements MessageInterpolator {
 
