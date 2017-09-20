@@ -15,6 +15,7 @@
 	<name>Lapsa : Parent</name>
 
 	<modules>
+		<module>commons</module>
 		<module>hibernate-validation</module>
 		<module>jersey-rest</module>
 		<module>validation</module>
@@ -42,6 +43,11 @@
 	<dependencyManagement>
 		<dependencies>
 			<!-- own -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>lapsa-hibernate-commons</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>lapsa-hibernate-validation</artifactId>
