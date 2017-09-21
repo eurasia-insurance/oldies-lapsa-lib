@@ -54,7 +54,7 @@ public interface LocalizedElement {
 		return Optional
 			.ofNullable(v.getString(String.format("%1$s.%2$s.full", this.getClass().getName(), name())));
 	    } catch (NullPointerException | MissingResourceException | ClassCastException e) {
-		return Optional.empty();
+		return Optional.ofNullable(displayName(bundleSupplier));
 	    }
 	}).orElseThrow(() -> new IllegalArgumentException("No ResourceBundle is supplied"));
     }
@@ -65,7 +65,7 @@ public interface LocalizedElement {
 		return Optional
 			.ofNullable(v.getString(String.format("%1$s.%2$s.short", this.getClass().getName(), name())));
 	    } catch (NullPointerException | MissingResourceException | ClassCastException e) {
-		return Optional.empty();
+		return Optional.ofNullable(displayName(bundleSupplier));
 	    }
 	}).orElseThrow(() -> new IllegalArgumentException("No ResourceBundle is supplied"));
     }
