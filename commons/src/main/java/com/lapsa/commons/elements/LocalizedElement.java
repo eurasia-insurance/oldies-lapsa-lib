@@ -10,6 +10,8 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 import java.util.stream.Stream.Builder;
 
+import com.lapsa.commons.function.Predicates;
+
 public interface LocalizedElement {
 
     public static enum DisplayNameVariant {
@@ -65,7 +67,7 @@ public interface LocalizedElement {
 			return null;
 		    }
 		}) //
-		.filter(x -> x != null) //
+		.filter(Predicates.objectNotNull()) //
 		.findFirst()
 		.orElseThrow(() -> new IllegalArgumentException("No ResourceBundle is supplied or key "
 			+ "is not mapped correctly"));
