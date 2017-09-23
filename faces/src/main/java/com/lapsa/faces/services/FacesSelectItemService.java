@@ -11,17 +11,17 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import com.lapsa.commons.elements.ListingService;
-import com.lapsa.commons.elements.LocalizedElement;
-import com.lapsa.commons.elements.LocalizedElementService;
+import com.lapsa.commons.elements.Localized;
+import com.lapsa.commons.elements.LocalizedService;
 
-public interface FacesSelectItemService<T extends LocalizedElement>
-	extends LocalizedElementService<T>, ListingService<T> {
+public interface FacesSelectItemService<T extends Localized>
+	extends LocalizedService<T>, ListingService<T> {
 
     @Override
     default String displayName(T entity) {
 	// TODO HACK подумать как развести CDI и JSF бины
 	if (FacesContext.getCurrentInstance() == null)
-	    return LocalizedElementService.super.displayName(entity);
+	    return LocalizedService.super.displayName(entity);
 
 	return entity.displayName(FacesContext.getCurrentInstance().getViewRoot().getLocale());
     }
@@ -30,7 +30,7 @@ public interface FacesSelectItemService<T extends LocalizedElement>
     default String displayNameShort(T entity) {
 	// TODO HACK подумать как развести CDI и JSF бины
 	if (FacesContext.getCurrentInstance() == null)
-	    return LocalizedElementService.super.displayNameShort(entity);
+	    return LocalizedService.super.displayNameShort(entity);
 
 	return entity.displayNameShort(FacesContext.getCurrentInstance().getViewRoot().getLocale());
     }
@@ -39,7 +39,7 @@ public interface FacesSelectItemService<T extends LocalizedElement>
     default String displayNameFull(T entity) {
 	// TODO HACK подумать как развести CDI и JSF бины
 	if (FacesContext.getCurrentInstance() == null)
-	    return LocalizedElementService.super.displayNameFull(entity);
+	    return LocalizedService.super.displayNameFull(entity);
 
 	return entity.displayNameFull(FacesContext.getCurrentInstance().getViewRoot().getLocale());
     }
