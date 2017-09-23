@@ -2,7 +2,7 @@ package com.lapsa.commons.elements;
 
 import java.util.Locale;
 
-public interface LocalizedElementService<T extends LocalizedElement> {
+public interface LocalizedService<T extends Localized> {
 
     default String displayName(T entity) {
 	return entity.displayName();
