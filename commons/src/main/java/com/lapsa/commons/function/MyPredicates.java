@@ -2,8 +2,8 @@ package com.lapsa.commons.function;
 
 import java.util.function.Predicate;
 
-public final class Predicates {
-    private Predicates() {
+public final class MyPredicates {
+    private MyPredicates() {
     }
 
     public static <T> Predicate<T> objectNotNull() {
