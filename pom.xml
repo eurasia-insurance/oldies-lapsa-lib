@@ -15,7 +15,6 @@
 	<name>Lapsa : Parent</name>
 
 	<modules>
-		<module>commons</module>
 		<module>hibernate-validation</module>
 		<module>jersey-rest</module>
 		<module>validation</module>
@@ -29,6 +28,7 @@
 
 	<properties>
 		<!-- APIs -->
+		<lapsa-commons-lib.version>2.2-SNAPSHOT</lapsa-commons-lib.version>
 		<international-lib.version>3.2-SNAPSHOT</international-lib.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
@@ -87,6 +87,12 @@
 				<groupId>${project.groupId}</groupId>
 				<artifactId>lapsa-velocitytools</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			<!-- internal lapsa-commons -->
+			<dependency>
+				<groupId>com.lapsa.lapsa-commons-lib</groupId>
+				<artifactId>lapsa-commons</artifactId>
+				<version>${lapsa-commons-lib.version}</version>
 			</dependency>
 			<!-- internal international -->
 			<dependency>

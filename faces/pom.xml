@@ -13,10 +13,10 @@
 	<name>Lapsa : Faces</name>
 
 	<dependencies>
-		<!-- own -->
+		<!-- internal lapsa-commons -->
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>lapsa-utils</artifactId>
+			<groupId>com.lapsa.lapsa-commons-lib</groupId>
+			<artifactId>lapsa-commons</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
