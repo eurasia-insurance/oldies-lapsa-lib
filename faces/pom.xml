@@ -18,7 +18,6 @@
 			<groupId>com.lapsa.lapsa.commons</groupId>
 			<artifactId>lapsa-commons</artifactId>
 			<scope>compile</scope>
-			<optional>false</optional>
 		</dependency>
 		<!-- Java EE -->
 		<dependency>
