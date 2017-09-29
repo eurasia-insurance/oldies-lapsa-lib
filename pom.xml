@@ -90,7 +90,7 @@
 			</dependency>
 			<!-- internal lapsa-commons -->
 			<dependency>
-				<groupId>com.lapsa.lapsa-commons-lib</groupId>
+				<groupId>com.lapsa.lapsa.commons</groupId>
 				<artifactId>lapsa-commons</artifactId>
 				<version>${lapsa-commons-lib.version}</version>
 			</dependency>
