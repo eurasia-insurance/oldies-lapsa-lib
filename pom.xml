@@ -29,7 +29,6 @@
 	<properties>
 		<!-- APIs -->
 		<lapsa-commons.version>2.2-SNAPSHOT</lapsa-commons.version>
-		<international-lib.version>3.2-SNAPSHOT</international-lib.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<velocity.version>1.7</velocity.version>
@@ -93,12 +92,6 @@
 				<groupId>com.lapsa.lapsa.commons</groupId>
 				<artifactId>lapsa-commons</artifactId>
 				<version>${lapsa-commons.version}</version>
-			</dependency>
-			<!-- internal international -->
-			<dependency>
-				<groupId>com.lapsa.international-lib</groupId>
-				<artifactId>international-core</artifactId>
-				<version>${international-lib.version}</version>
 			</dependency>
 			<!-- external -->
 			<dependency>

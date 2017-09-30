@@ -5,8 +5,6 @@ import java.util.Locale;
 
 import javax.validation.MessageInterpolator;
 
-import com.lapsa.international.localization.LocalizationLanguage;
-
 public class RequestAcceptableLanguagesMessageInterpolator implements MessageInterpolator {
 
     private final MessageInterpolator delegate;
@@ -18,8 +16,15 @@ public class RequestAcceptableLanguagesMessageInterpolator implements MessageInt
     @Override
     public String interpolate(String message, Context context) {
 	List<Locale> locales = RequestAcceptableLanguages.getLocalesList();
-	LocalizationLanguage lang = LocalizationLanguage.byLocalePriorityListOrDefault(locales);
-	return delegate.interpolate(message, context, lang.getLocale());
+	if (locales != null)
+	    for (Locale locale : locales)
+		try {
+		    return delegate.interpolate(message, context, locale);
+		} catch (Exception e) {
+		    // continue to interpolating in next listed locale
+		}
+
+	return delegate.interpolate(message, context);
     }
 
     @Override

@@ -24,8 +24,6 @@ import org.apache.velocity.runtime.parser.ParseException;
 import org.apache.velocity.runtime.parser.node.SimpleNode;
 import org.apache.velocity.util.ClassUtils;
 
-import com.lapsa.international.localization.LocalizationLanguage;
-
 public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 
     protected static final String DEFAULT_TEMPLATE_PATH = "emailTemplates";
@@ -44,7 +42,7 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
     }
 
     @Override
-    public VelocityContext configureDefaultVelocityContext(LocalizationLanguage language) {
+    public VelocityContext configureDefaultVelocityContext(Locale locale) {
 	VelocityContext context = new VelocityContext();
 
 	// DateTool
@@ -52,29 +50,28 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 	    Java8TemporalTypesDateTool dt = new Java8TemporalTypesDateTool();
 	    Map<String, Object> dtConf = new HashMap<>();
 	    dtConf.put("format", "full_date");
-	    dtConf.put("locale", language.getLocale());
 	    dt.configure(dtConf);
 	    context.put("date", dt);
 	}
 
-	// language
+	// locale
 	{
-	    context.put("language", language);
+	    context.put("locale", locale);
 	}
 
 	return context;
     }
 
     @Override
-    public String getTemplateReousrcePath(LocalizationLanguage language, String templateResourceName) {
-	String tag = (language != null ? language.getTag() : Locale.getDefault().getLanguage());
+    public String getTemplateReousrcePath(Locale locale, String templateResourceName) {
+	String tag = (locale != null ? locale : Locale.getDefault()).getLanguage();
 	return String.format("/%1$s/%2$s/%3$s", stripBothSlashes(templateResourcePath), tag,
 		stripBeginingSlash(templateResourceName));
     }
 
     @Override
-    public InputStream getTemplateReousrceAsStream(LocalizationLanguage language, String templateResourceName) {
-	String resourcePath = getTemplateReousrcePath(language, templateResourceName);
+    public InputStream getTemplateReousrceAsStream(Locale locale, String templateResourceName) {
+	String resourcePath = getTemplateReousrcePath(locale, templateResourceName);
 	InputStream is = ClassUtils.getResourceAsStream(this.getClass(), resourcePath);
 	if (is == null)
 	    throw new RuntimeException(String.format("Resource not found '%1$s'", resourcePath));
@@ -82,7 +79,7 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
     }
 
     @Override
-    public ResourceBundle getResourceBundle(LocalizationLanguage language, String baseName) {
+    public ResourceBundle getResourceBundle(Locale locale, String baseName) {
 	ClassLoader classLoader = null;
 	if (classLoader == null)
 	    classLoader = Thread.currentThread().getContextClassLoader();
@@ -91,17 +88,17 @@ public class DefaultLapsaVelocityTools implements LapsaVelocityTools {
 	if (classLoader == null)
 	    throw new RuntimeException(
 		    String.format("Resource bundle not found '%1$s' (Class loader is null)", baseName));
-	ResourceBundle rb = ResourceBundle.getBundle(baseName,
-		(language != null ? language.getLocale() : Locale.getDefault()), classLoader);
+	ResourceBundle rb = ResourceBundle.getBundle(baseName, (locale != null ? locale : Locale.getDefault()),
+		classLoader);
 	if (rb == null)
 	    throw new RuntimeException(String.format("Resource bundle not found '%1$s'", baseName));
 	return rb;
     }
 
     @Override
-    public String getTemplateMergedText(LocalizationLanguage language, VelocityContext context,
+    public String getTemplateMergedText(Locale locale, VelocityContext context,
 	    String templateResourceName) throws TemplateException {
-	String templatePath = getTemplateReousrcePath(language, templateResourceName);
+	String templatePath = getTemplateReousrcePath(locale, templateResourceName);
 
 	Template t = getByPath(templatePath);
 
