@@ -22,7 +22,7 @@
 		<module>utils</module>
 		<module>faces</module>
 		<module>jpa</module>
-		<module>arquilliantools</module>
+		<module>arquillian-test</module>
 		<module>velocitytools</module>
 	</modules>
 
@@ -79,7 +79,7 @@
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>lapsa-arquilliantools</artifactId>
+				<artifactId>lapsa-arquillian-test</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>

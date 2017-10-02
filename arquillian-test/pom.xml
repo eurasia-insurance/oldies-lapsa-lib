@@ -7,10 +7,10 @@
 		<version>2.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>lapsa-arquilliantools</artifactId>
+	<artifactId>lapsa-arquillian-test</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Lapsa : Arquillian tools</name>
+	<name>Lapsa : Arquillian test tools</name>
 
 	<dependencyManagement>
 		<dependencies>
