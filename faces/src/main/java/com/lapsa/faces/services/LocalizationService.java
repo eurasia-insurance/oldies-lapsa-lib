@@ -10,7 +10,7 @@ import com.lapsa.commons.elements.Localized;
 
 @Named("localizationService")
 @ApplicationScoped
-public class SelectItemService implements FacesSelectItemService<Localized> {
+public class LocalizationService implements FacesSelectItemService<Localized> {
 
     public List<SelectItem> toSelectItems(final Localized[] list) {
 	return generateItemsSI(() -> list, this::selectItem);
