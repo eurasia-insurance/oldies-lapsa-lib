@@ -10,12 +10,18 @@ import javax.enterprise.inject.Default;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
-import com.lapsa.commons.elements.ListingService;
 import com.lapsa.commons.elements.Localized;
 import com.lapsa.commons.elements.LocalizedService;
 
-public interface FacesSelectItemService<T extends Localized>
-	extends LocalizedService<T>, ListingService<T> {
+public interface FacesSelectItemService<T extends Localized> extends LocalizedService<T> {
+
+    //
+
+    default List<SelectItem> generateItemsSI(Supplier<T[]> listSupplier, Function<T, SelectItem> selectItemSupplier) {
+	return Arrays.stream(listSupplier.get()).map(selectItemSupplier).collect(Collectors.toList());
+    }
+
+    //
 
     @Override
     default String displayName(T entity) {
@@ -46,40 +52,6 @@ public interface FacesSelectItemService<T extends Localized>
 
     //
 
-    default List<SelectItem> getAllItemsSI() {
-	return generateItemsSI(this::getAll, this::selectItem);
-    }
-
-    default List<SelectItem> getAllItemsShortSI() {
-	return generateItemsSI(this::getAll, this::selectItemShort);
-    }
-
-    default List<SelectItem> getAllItemsFullSI() {
-	return generateItemsSI(this::getAll, this::selectItemFull);
-    }
-
-    //
-
-    default List<SelectItem> getSelectableItemsSI() {
-	return generateItemsSI(this::getSelectable, this::selectItem);
-    }
-
-    default List<SelectItem> getSelectableItemsShortSI() {
-	return generateItemsSI(this::getSelectable, this::selectItemShort);
-    }
-
-    default List<SelectItem> getSelectableItemsFullSI() {
-	return generateItemsSI(this::getSelectable, this::selectItemFull);
-    }
-
-    //
-
-    default List<SelectItem> generateItemsSI(Supplier<T[]> listSupplier, Function<T, SelectItem> selectItemSupplier) {
-	return Arrays.stream(listSupplier.get()).map(selectItemSupplier).collect(Collectors.toList());
-    }
-
-    //
-
     default SelectItem selectItem(T entity) {
 	return new SelectItem(entity, displayName(entity));
     }
@@ -91,19 +63,4 @@ public interface FacesSelectItemService<T extends Localized>
     default SelectItem selectItemShort(T entity) {
 	return new SelectItem(entity, displayNameShort(entity));
     }
-
-    //
-
-    default List<SelectItem> getNonSelectableItemsSI() {
-	return generateItemsSI(this::getNonSelectable, this::selectItem);
-    }
-
-    default List<SelectItem> getNonSelectableItemsShortSI() {
-	return generateItemsSI(this::getNonSelectable, this::selectItemShort);
-    }
-
-    default List<SelectItem> getNonSelectableItemsFullSI() {
-	return generateItemsSI(this::getNonSelectable, this::selectItemFull);
-    }
-
 }
