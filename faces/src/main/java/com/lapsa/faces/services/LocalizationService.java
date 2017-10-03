@@ -8,7 +8,7 @@ import javax.inject.Named;
 
 import com.lapsa.commons.elements.Localized;
 
-@Named("selectItemService")
+@Named("localizationService")
 @ApplicationScoped
 public class SelectItemService implements FacesSelectItemService<Localized> {
 
