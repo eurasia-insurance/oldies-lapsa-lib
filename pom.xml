@@ -15,7 +15,6 @@
 	<name>Lapsa : Parent</name>
 
 	<modules>
-		<module>hibernate-validation</module>
 		<module>validation</module>
 		<module>cdiutils</module>
 		<module>utils</module>
@@ -31,7 +30,6 @@
 		<velocity.version>1.7</velocity.version>
 		<velocity-tools.version>2.0</velocity-tools.version>
 		<!-- Glassfish -->
-		<gf-embeded.hibernate-validator.version>5.0.0.Final</gf-embeded.hibernate-validator.version>
 		<gf-embeded.el.version>2.2.6</gf-embeded.el.version>
 		<gf-embeded.jersey.version>2.10.4</gf-embeded.jersey.version>
 	</properties>
@@ -42,11 +40,6 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>lapsa-hibernate-commons</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>lapsa-hibernate-validation</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -102,11 +95,6 @@
 				<version>${primefaces.version}</version>
 			</dependency>
 			<!-- Glassfish -->
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-validator</artifactId>
-				<version>${gf-embeded.hibernate-validator.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>org.glassfish.web</groupId>
 				<artifactId>javax.el</artifactId>
