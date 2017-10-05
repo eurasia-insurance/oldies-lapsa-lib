@@ -22,7 +22,6 @@
 		<module>utils</module>
 		<module>faces</module>
 		<module>jpa</module>
-		<module>arquillian-test</module>
 		<module>velocitytools</module>
 	</modules>
 
@@ -75,11 +74,6 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>lapsa-faces</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>lapsa-arquillian-test</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
