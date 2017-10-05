@@ -25,6 +25,7 @@
 	<properties>
 		<!-- APIs -->
 		<lapsa-commons.version>2.2-SNAPSHOT</lapsa-commons.version>
+		<gf-embeded.hibernate-validator.version>5.0.0.Final</gf-embeded.hibernate-validator.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<velocity.version>1.7</velocity.version>
@@ -95,6 +96,11 @@
 				<version>${primefaces.version}</version>
 			</dependency>
 			<!-- Glassfish -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${gf-embeded.hibernate-validator.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.glassfish.web</groupId>
 				<artifactId>javax.el</artifactId>
