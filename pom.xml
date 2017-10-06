@@ -25,18 +25,23 @@
 	<properties>
 		<!-- APIs -->
 		<lapsa-commons.version>2.2-SNAPSHOT</lapsa-commons.version>
-		<gf-embeded.hibernate-validator.version>5.0.0.Final</gf-embeded.hibernate-validator.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<velocity.version>1.7</velocity.version>
 		<velocity-tools.version>2.0</velocity-tools.version>
-		<!-- Glassfish -->
-		<gf-embeded.el.version>2.2.6</gf-embeded.el.version>
-		<gf-embeded.jersey.version>2.10.4</gf-embeded.jersey.version>
+		<!-- tech -->
+		<lapsa-payara-bom.version>4.1.2-SNAPSHOT</lapsa-payara-bom.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>tech.lapsa.lapsa</groupId>
+				<artifactId>lapsa-payara-bom</artifactId>
+				<version>${lapsa-payara-bom.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
 			<!-- own -->
 			<dependency>
 				<groupId>${project.groupId}</groupId>
@@ -94,17 +99,6 @@
 				<groupId>org.primefaces</groupId>
 				<artifactId>primefaces</artifactId>
 				<version>${primefaces.version}</version>
-			</dependency>
-			<!-- Glassfish -->
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-validator</artifactId>
-				<version>${gf-embeded.hibernate-validator.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.glassfish.web</groupId>
-				<artifactId>javax.el</artifactId>
-				<version>${gf-embeded.el.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
