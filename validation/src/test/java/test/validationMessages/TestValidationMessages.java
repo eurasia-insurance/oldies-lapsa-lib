@@ -86,7 +86,7 @@ public class TestValidationMessages {
 	assertThat("Message key must be non empty string", messageKey, allOf(not(nullValue()), not(isEmptyString())));
 	String interpolatedMessage = null;
 	try {
-	    MessageInterpolatorContext context = new MessageInterpolatorContext(null, null, null);
+	    MessageInterpolatorContext context = new MessageInterpolatorContext(null, null, null, null);
 	    interpolatedMessage = interpolator.interpolate(messageKey, context, locale);
 	} catch (Exception e) {
 	    fail(String.format("Error interpolating message key '%1$s' for locale '%2$s' : %3$s", messageKey,

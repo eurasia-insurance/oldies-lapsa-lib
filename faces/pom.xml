@@ -13,12 +13,11 @@
 	<name>Lapsa : Faces</name>
 
 	<dependencies>
-		<!-- own -->
+		<!-- tech -->
 		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>lapsa-utils</artifactId>
+			<groupId>tech.lapsa.java</groupId>
+			<artifactId>java-commons</artifactId>
 			<scope>compile</scope>
-			<optional>false</optional>
 		</dependency>
 		<!-- Java EE -->
 		<dependency>

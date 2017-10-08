@@ -1,29 +1,26 @@
 package com.lapsa.lapsa.velocitytools;
 
 import java.io.InputStream;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.apache.velocity.VelocityContext;
 
-import com.lapsa.localization.LocalizationLanguage;
-
 public interface LapsaVelocityTools {
 
-    VelocityContext configureDefaultVelocityContext(LocalizationLanguage language);
+    VelocityContext configureDefaultVelocityContext(Locale language);
 
-    String getTemplateReousrcePath(LocalizationLanguage language,
-	    String templateResourceName);
+    String getTemplateReousrcePath(Locale language, String templateResourceName);
 
     void setDefaultTemplateResourcePath(String templateResourcePath);
 
-    String getTemplateMergedText(LocalizationLanguage language, VelocityContext context,
-	    String templateResourceName) throws TemplateException;
-
-    String getTemplateMergedText(VelocityContext context, String templateContent)
+    String getTemplateMergedText(Locale language, VelocityContext context, String templateResourceName)
 	    throws TemplateException;
 
-    InputStream getTemplateReousrceAsStream(LocalizationLanguage language, String templateResourceName);
+    String getTemplateMergedText(VelocityContext context, String templateContent) throws TemplateException;
 
-    ResourceBundle getResourceBundle(LocalizationLanguage language, String bundleBasename);
+    InputStream getTemplateReousrceAsStream(Locale language, String templateResourceName);
+
+    ResourceBundle getResourceBundle(Locale language, String bundleBasename);
 
 }
