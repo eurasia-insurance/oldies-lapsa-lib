@@ -12,3 +12,4 @@ com.lapsa.validation.NotTooYoungYearOfIssue.message = Ең аз рұқсат е�
 com.lapsa.validation.NotTooOldYearOfIssue.message = Ең көп рұқсат етілген жас {maxAge} жасты құрайды
 com.lapsa.validation.NotZeroAmount.message = Соманың мөлшері нөлден үлкен болуы тиіс
 com.lapsa.validation.ValidHumanName.message = Дұрыс емес мән. Сіз кіргізген мәнде рұқсат етілмеген символдар болуы мүмкін.
+com.lapsa.validation.ValidURI.message = =KAZ= Неверный URI

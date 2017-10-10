@@ -12,3 +12,4 @@ com.lapsa.validation.NotTooYoungYearOfIssue.message = The minimum permissible ag
 com.lapsa.validation.NotTooOldYearOfIssue.message = The maximum permissible age is {maxAge} years
 com.lapsa.validation.NotZeroAmount.message = Amount must be greater than zero
 com.lapsa.validation.ValidHumanName.message = Invalid value. Perhaps the value you have entered contains ilegal characters
+com.lapsa.validation.ValidURI.message = =ENG= Invalid URI
