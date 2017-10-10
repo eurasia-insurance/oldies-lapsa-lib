@@ -59,7 +59,11 @@ public final class BeanUtils {
     }
 
     private static <T> Optional<T> lookupCDI11(final Class<T> clazz) {
-	return Optional.ofNullable(CDI.current().select(clazz).get());
+	try {
+	    return Optional.ofNullable(CDI.current().select(clazz).get());
+	} catch (Exception e) {
+	    return Optional.empty();
+	}
     }
 
     private static <T> Optional<T> lookupCDI10(final Class<T> clazz) {
