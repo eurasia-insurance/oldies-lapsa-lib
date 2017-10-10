@@ -42,18 +42,18 @@ public final class BeanUtils {
 
     public static <T> Optional<T> lookup(final Class<T> clazz) {
 	Optional<T> res = Optional.empty();
-	if (res.isPresent())
+	if (!res.isPresent())
 	    res = lookupCDI(clazz);
-	if (res.isPresent())
+	if (!res.isPresent())
 	    res = lookupNaming(clazz);
 	return res;
     }
 
     public static <T> Optional<T> lookupCDI(final Class<T> clazz) {
 	Optional<T> res = Optional.empty();
-	if (res.isPresent())
+	if (!res.isPresent())
 	    res = lookupCDI11(clazz);
-	if (res.isPresent())
+	if (!res.isPresent())
 	    res = lookupCDI10(clazz);
 	return res;
     }
