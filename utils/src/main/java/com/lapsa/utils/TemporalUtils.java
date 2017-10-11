@@ -1,5 +1,6 @@
 package com.lapsa.utils;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -98,6 +99,10 @@ public final class TemporalUtils {
 
     // toDate family
 
+    public static Date toDate(Instant instant) {
+	return instant == null ? null : Date.from(instant);
+    }
+
     public static final Date toDate(Calendar calendar) {
 	return calendar == null ? null : calendar.getTime();
     }
@@ -133,5 +138,4 @@ public final class TemporalUtils {
     public static final LocalTime toLocalTime(Date date) {
 	return toLocalTime(toLocalDateTime(date));
     }
-
 }
