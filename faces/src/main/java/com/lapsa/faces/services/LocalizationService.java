@@ -6,7 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
 
-import com.lapsa.commons.elements.Localized;
+import tech.lapsa.java.commons.localization.Localized;
 
 @Named("localizationService")
 @ApplicationScoped

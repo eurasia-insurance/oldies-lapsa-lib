@@ -10,8 +10,8 @@ import javax.enterprise.inject.Default;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
-import com.lapsa.commons.elements.Localized;
-import com.lapsa.commons.elements.LocalizedService;
+import tech.lapsa.java.commons.localization.Localized;
+import tech.lapsa.java.commons.localization.LocalizedService;
 
 public interface FacesSelectItemService<T extends Localized> extends LocalizedService<T> {
 
