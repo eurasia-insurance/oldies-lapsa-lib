@@ -12,3 +12,4 @@ com.lapsa.validation.NotTooYoungYearOfIssue.message = Минимальный д�
 com.lapsa.validation.NotTooOldYearOfIssue.message = Максимальный допустимый возраст составляет {maxAge} лет
 com.lapsa.validation.NotZeroAmount.message = Размер суммы должна быть больше ноля
 com.lapsa.validation.ValidHumanName.message = Некорректное значение. Возможно значение, которое Вы ввели содержит неразрешенные символы
+com.lapsa.validation.ValidURI.message = Неверный URI

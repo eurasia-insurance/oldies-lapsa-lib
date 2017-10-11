@@ -12,6 +12,7 @@ import com.lapsa.validation.NotZeroAmount;
 import com.lapsa.validation.ValidDateOfBirth;
 import com.lapsa.validation.ValidDateOfIssue;
 import com.lapsa.validation.ValidHumanName;
+import com.lapsa.validation.ValidURI;
 
 public interface DummyAnnotated {
 
@@ -31,5 +32,6 @@ public interface DummyAnnotated {
     @ValidDateOfBirth
     @ValidDateOfIssue
     @ValidHumanName
+    @ValidURI
     void dummy();
 }
