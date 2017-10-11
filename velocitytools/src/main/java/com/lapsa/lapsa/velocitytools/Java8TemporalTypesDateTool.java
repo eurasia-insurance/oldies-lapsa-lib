@@ -1,5 +1,6 @@
 package com.lapsa.lapsa.velocitytools;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -21,6 +22,8 @@ public class Java8TemporalTypesDateTool extends DateTool {
 		return super.format(TemporalUtils.toDate((LocalDate) obj));
 	    if (obj instanceof LocalTime)
 		return super.format(TemporalUtils.toDate((LocalTime) obj));
+	    if (obj instanceof Instant)
+		return super.format(TemporalUtils.toDate((Instant) obj));
 	}
 	return super.format(obj);
     }
@@ -34,6 +37,8 @@ public class Java8TemporalTypesDateTool extends DateTool {
 		return super.format(format, TemporalUtils.toDate((LocalDate) obj), locale, timezone);
 	    if (obj instanceof LocalTime)
 		return super.format(format, TemporalUtils.toDate((LocalTime) obj), locale, timezone);
+	    if (obj instanceof Instant)
+		return super.format(format, TemporalUtils.toDate((Instant) obj), locale, timezone);
 	}
 	return super.format(format, obj, locale, timezone);
     }
@@ -47,6 +52,8 @@ public class Java8TemporalTypesDateTool extends DateTool {
 		return super.format(format, TemporalUtils.toDate((LocalDate) obj), locale);
 	    if (obj instanceof LocalTime)
 		return super.format(format, TemporalUtils.toDate((LocalTime) obj), locale);
+	    if (obj instanceof Instant)
+		return super.format(format, TemporalUtils.toDate((Instant) obj), locale);
 	}
 	return super.format(format, obj, locale);
     }
@@ -60,6 +67,8 @@ public class Java8TemporalTypesDateTool extends DateTool {
 		return super.format(format, TemporalUtils.toDate((LocalDate) obj));
 	    if (obj instanceof LocalTime)
 		return super.format(format, TemporalUtils.toDate((LocalTime) obj));
+	    if (obj instanceof Instant)
+		return super.format(format, TemporalUtils.toDate((Instant) obj));
 	}
 	return super.format(format, obj);
     }
@@ -73,6 +82,8 @@ public class Java8TemporalTypesDateTool extends DateTool {
 		return super.format(dateStyle, timeStyle, TemporalUtils.toDate((LocalDate) obj), locale, timezone);
 	    if (obj instanceof LocalTime)
 		return super.format(dateStyle, timeStyle, TemporalUtils.toDate((LocalTime) obj), locale, timezone);
+	    if (obj instanceof Instant)
+		return super.format(dateStyle, timeStyle, TemporalUtils.toDate((Instant) obj), locale, timezone);
 	}
 	return super.format(dateStyle, timeStyle, obj, locale, timezone);
     }
@@ -86,6 +97,8 @@ public class Java8TemporalTypesDateTool extends DateTool {
 		return super.format(dateStyle, timeStyle, TemporalUtils.toDate((LocalDate) obj), locale);
 	    if (obj instanceof LocalTime)
 		return super.format(dateStyle, timeStyle, TemporalUtils.toDate((LocalTime) obj), locale);
+	    if (obj instanceof Instant)
+		return super.format(dateStyle, timeStyle, TemporalUtils.toDate((Instant) obj), locale);
 	}
 	return super.format(dateStyle, timeStyle, obj, locale);
     }
@@ -99,6 +112,8 @@ public class Java8TemporalTypesDateTool extends DateTool {
 		return super.format(dateStyle, timeStyle, TemporalUtils.toDate((LocalDate) obj));
 	    if (obj instanceof LocalTime)
 		return super.format(dateStyle, timeStyle, TemporalUtils.toDate((LocalTime) obj));
+	    if (obj instanceof Instant)
+		return super.format(dateStyle, timeStyle, TemporalUtils.toDate((Instant) obj));
 	}
 	return super.format(dateStyle, timeStyle, obj);
     }
