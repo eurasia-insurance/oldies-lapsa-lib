@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.faces.model.SelectItem;
 
-import com.lapsa.commons.elements.ListingService;
-import com.lapsa.commons.elements.Localized;
+import tech.lapsa.java.commons.localization.ListingService;
+import tech.lapsa.java.commons.localization.Localized;
 
 public interface FacesSelectItemListingService<T extends Localized>
 	extends FacesSelectItemService<T>, ListingService<T> {
