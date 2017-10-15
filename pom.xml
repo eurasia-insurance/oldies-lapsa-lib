@@ -16,7 +16,6 @@
 	<name>Lapsa : Parent</name>
 
 	<modules>
-		<module>validation</module>
 		<module>cdiutils</module>
 		<module>utils</module>
 		<module>faces</module>
@@ -56,11 +55,6 @@
 				<type>pom</type>
 			</dependency>
 			<!-- own -->
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>lapsa-validation</artifactId>
-				<version>${project.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>lapsa-cdiutils</artifactId>
