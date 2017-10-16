@@ -29,7 +29,7 @@ public interface FacesSelectItemService<T extends Localized> extends LocalizedSe
 	if (FacesContext.getCurrentInstance() == null)
 	    return LocalizedService.super.displayName(entity);
 
-	return entity.displayName(FacesContext.getCurrentInstance().getViewRoot().getLocale());
+	return entity.regular(FacesContext.getCurrentInstance().getViewRoot().getLocale());
     }
 
     @Default
@@ -38,7 +38,7 @@ public interface FacesSelectItemService<T extends Localized> extends LocalizedSe
 	if (FacesContext.getCurrentInstance() == null)
 	    return LocalizedService.super.displayNameShort(entity);
 
-	return entity.displayNameShort(FacesContext.getCurrentInstance().getViewRoot().getLocale());
+	return entity.few(FacesContext.getCurrentInstance().getViewRoot().getLocale());
     }
 
     @Default
@@ -47,7 +47,7 @@ public interface FacesSelectItemService<T extends Localized> extends LocalizedSe
 	if (FacesContext.getCurrentInstance() == null)
 	    return LocalizedService.super.displayNameFull(entity);
 
-	return entity.displayNameFull(FacesContext.getCurrentInstance().getViewRoot().getLocale());
+	return entity.full(FacesContext.getCurrentInstance().getViewRoot().getLocale());
     }
 
     //
