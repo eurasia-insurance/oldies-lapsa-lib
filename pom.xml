@@ -16,7 +16,6 @@
 	<name>Lapsa : Parent</name>
 
 	<modules>
-		<module>cdiutils</module>
 		<module>utils</module>
 		<module>faces</module>
 	</modules>
@@ -55,11 +54,6 @@
 				<type>pom</type>
 			</dependency>
 			<!-- own -->
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>lapsa-cdiutils</artifactId>
-				<version>${project.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>lapsa-utils</artifactId>
