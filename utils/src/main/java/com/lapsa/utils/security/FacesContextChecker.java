@@ -16,7 +16,7 @@ class FacesContextChecker implements SecuritySourceChecker {
     @Override
     public boolean isUserInRole(SecurityRole securityRole) {
 	try {
-	    return facesContext.getExternalContext().isUserInRole(securityRole.name());
+	    return facesContext.getExternalContext().isUserInRole(securityRole.roleName());
 	} catch (IllegalStateException | NullPointerException e) {
 	    return false;
 	}

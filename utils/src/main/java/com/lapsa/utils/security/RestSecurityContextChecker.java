@@ -18,7 +18,7 @@ class RestSecurityContextChecker implements SecuritySourceChecker {
     @Override
     public boolean isUserInRole(SecurityRole securityRole) {
 	try {
-	    return securityContext.isUserInRole(securityRole.name());
+	    return securityContext.isUserInRole(securityRole.roleName());
 	} catch (IllegalStateException | NullPointerException e) {
 	    return false;
 	}

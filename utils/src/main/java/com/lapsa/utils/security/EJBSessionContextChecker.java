@@ -18,7 +18,7 @@ class EJBSessionContextChecker implements SecuritySourceChecker {
     @Override
     public boolean isUserInRole(SecurityRole securityRole) {
 	try {
-	    return ejbSessionContext.isCallerInRole(securityRole.name());
+	    return ejbSessionContext.isCallerInRole(securityRole.roleName());
 	} catch (IllegalStateException | NullPointerException e) {
 	    return false;
 	}

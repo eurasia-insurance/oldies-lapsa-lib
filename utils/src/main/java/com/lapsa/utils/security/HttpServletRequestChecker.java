@@ -16,7 +16,7 @@ class HttpServletRequestChecker implements SecuritySourceChecker {
     @Override
     public boolean isUserInRole(SecurityRole securityRole) {
 	try {
-	    return httpServletRequest.isUserInRole(securityRole.name());
+	    return httpServletRequest.isUserInRole(securityRole.roleName());
 	} catch (IllegalStateException | NullPointerException e) {
 	    return false;
 	}
