@@ -10,13 +10,13 @@ class EJBSessionContextChecker implements SecuritySourceChecker {
     private final SessionContext ejbSessionContext;
     private final Locale locale;
 
-    EJBSessionContextChecker(SessionContext ejbSessionContext, Locale locale) {
+    EJBSessionContextChecker(final SessionContext ejbSessionContext, final Locale locale) {
 	this.ejbSessionContext = ejbSessionContext;
 	this.locale = locale;
     }
 
     @Override
-    public boolean isUserInRole(SecurityRole securityRole) {
+    public boolean isUserInRole(final SecurityRole securityRole) {
 	try {
 	    return ejbSessionContext.isCallerInRole(securityRole.roleName());
 	} catch (IllegalStateException | NullPointerException e) {

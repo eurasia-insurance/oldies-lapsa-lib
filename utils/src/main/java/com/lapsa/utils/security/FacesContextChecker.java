@@ -9,12 +9,12 @@ class FacesContextChecker implements SecuritySourceChecker {
 
     private final FacesContext facesContext;
 
-    FacesContextChecker(FacesContext facesContext) {
+    FacesContextChecker(final FacesContext facesContext) {
 	this.facesContext = facesContext;
     }
 
     @Override
-    public boolean isUserInRole(SecurityRole securityRole) {
+    public boolean isUserInRole(final SecurityRole securityRole) {
 	try {
 	    return facesContext.getExternalContext().isUserInRole(securityRole.roleName());
 	} catch (IllegalStateException | NullPointerException e) {

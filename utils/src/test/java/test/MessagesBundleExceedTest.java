@@ -8,47 +8,48 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
+import com.lapsa.utils.ElementsBundleBase;
 import com.lapsa.utils.UtilsMessage;
 
 public class MessagesBundleExceedTest extends BaseMessagesBundleTest {
 
     @Test
     public void testNoExcessRecordsRussian() {
-	Locale locale = getLocale(LANG_RU);
-	ResourceBundle resources = getResourceBundle(UtilsMessage.BUNDLE_BASENAME, locale);
+	final Locale locale = getLocale(LANG_RU);
+	final ResourceBundle resources = getResourceBundle(ElementsBundleBase.BUNDLE_BASENAME, locale);
 	testBundle(resources);
     }
 
     @Test
     public void testNoExcessRecordsEnglish() {
-	Locale locale = getLocale(LANG_EN);
-	ResourceBundle resources = getResourceBundle(UtilsMessage.BUNDLE_BASENAME, locale);
+	final Locale locale = getLocale(LANG_EN);
+	final ResourceBundle resources = getResourceBundle(ElementsBundleBase.BUNDLE_BASENAME, locale);
 	testBundle(resources);
     }
 
     @Test
     public void testNoExcessRecordsKazakh() {
-	Locale locale = getLocale(LANG_KK);
-	ResourceBundle resources = getResourceBundle(UtilsMessage.BUNDLE_BASENAME, locale);
+	final Locale locale = getLocale(LANG_KK);
+	final ResourceBundle resources = getResourceBundle(ElementsBundleBase.BUNDLE_BASENAME, locale);
 	testBundle(resources);
     }
 
-    private void testBundle(ResourceBundle resources) {
-	Enumeration<String> keys = resources.getKeys();
+    private void testBundle(final ResourceBundle resources) {
+	final Enumeration<String> keys = resources.getKeys();
 	while (keys.hasMoreElements()) {
-	    String key = keys.nextElement();
+	    final String key = keys.nextElement();
 	    if (findByFullName(UtilsMessage.values(), key) != null)
 		continue;
 	    fail(String.format("Resource bunddle key '%1$s' is outbinded", key));
 	}
     }
 
-    private <T extends Enum<?>> T findByFullName(T[] values, String key) {
-	for (T c : values) {
-	    String name = String.format("%s.%s", c.getClass().getName(), c.name());
+    private <T extends Enum<?>> T findByFullName(final T[] values, final String key) {
+	for (final T c : values) {
+	    final String name = String.format("%s.%s", c.getClass().getName(), c.name());
 	    if (name.equals(key))
 		return c;
-	    String shrt = String.format("%s.%s.short", c.getClass().getName(), c.name());
+	    final String shrt = String.format("%s.%s.short", c.getClass().getName(), c.name());
 	    if (shrt.equals(key))
 		return c;
 	}

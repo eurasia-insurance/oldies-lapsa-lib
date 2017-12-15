@@ -1,5 +1,6 @@
 package test;
 
+import com.lapsa.utils.ElementsBundleBase;
 import com.lapsa.utils.UtilsMessage;
 
 public class UtilsMessageBundleTest extends EnumTypeMessagesBundleTest<UtilsMessage> {
@@ -11,6 +12,6 @@ public class UtilsMessageBundleTest extends EnumTypeMessagesBundleTest<UtilsMess
 
     @Override
     protected String getBundleBaseName() {
-	return UtilsMessage.BUNDLE_BASENAME;
+	return ElementsBundleBase.BUNDLE_BASENAME;
     }
 }

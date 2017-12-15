@@ -7,20 +7,20 @@ public class UnauthorizedException extends RuntimeException {
 	super();
     }
 
-    public UnauthorizedException(String message, Throwable cause, boolean enableSuppression,
-	    boolean writableStackTrace) {
+    public UnauthorizedException(final String message, final Throwable cause, final boolean enableSuppression,
+	    final boolean writableStackTrace) {
 	super(message, cause, enableSuppression, writableStackTrace);
     }
 
-    public UnauthorizedException(String message, Throwable cause) {
+    public UnauthorizedException(final String message, final Throwable cause) {
 	super(message, cause);
     }
 
-    public UnauthorizedException(String message) {
+    public UnauthorizedException(final String message) {
 	super(message);
     }
 
-    public UnauthorizedException(Throwable cause) {
+    public UnauthorizedException(final Throwable cause) {
 	super(cause);
     }
 

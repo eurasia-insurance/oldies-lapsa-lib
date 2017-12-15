@@ -29,14 +29,14 @@ public abstract class EnumTypeMessagesBundleTest<T extends Enum<?>> extends Base
 
     protected abstract String getBundleBaseName();
 
-    protected void testBundle(String bundleBaseName, String languageTag) {
-	Locale locale = getLocale(languageTag);
-	ResourceBundle resourceBundle = getResourceBundle(bundleBaseName, locale);
-	for (T c : getAllEnumValues()) {
-	    String key = String.format("%s.%s", c.getClass().getName(), c.name());
+    protected void testBundle(final String bundleBaseName, final String languageTag) {
+	final Locale locale = getLocale(languageTag);
+	final ResourceBundle resourceBundle = getResourceBundle(bundleBaseName, locale);
+	for (final T c : getAllEnumValues()) {
+	    final String key = String.format("%s.%s", c.getClass().getName(), c.name());
 	    try {
 		resourceBundle.getString(String.format("%s.%s", c.getClass().getName(), c.name()));
-	    } catch (MissingResourceException e) {
+	    } catch (final MissingResourceException e) {
 		fail(String.format("Missing key %1$s", key));
 	    }
 	}

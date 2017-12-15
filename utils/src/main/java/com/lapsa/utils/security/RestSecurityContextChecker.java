@@ -10,13 +10,13 @@ class RestSecurityContextChecker implements SecuritySourceChecker {
     private final SecurityContext securityContext;
     private final Locale locale;
 
-    RestSecurityContextChecker(SecurityContext securityContext, Locale locale) {
+    RestSecurityContextChecker(final SecurityContext securityContext, final Locale locale) {
 	this.securityContext = securityContext;
 	this.locale = locale;
     }
 
     @Override
-    public boolean isUserInRole(SecurityRole securityRole) {
+    public boolean isUserInRole(final SecurityRole securityRole) {
 	try {
 	    return securityContext.isUserInRole(securityRole.roleName());
 	} catch (IllegalStateException | NullPointerException e) {

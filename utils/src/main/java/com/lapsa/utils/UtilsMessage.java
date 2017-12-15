@@ -6,6 +6,7 @@ public enum UtilsMessage implements ElementsBundleBase {
     SECURITY_ROLES_DENIED_PREFIX,
     SECURITY_ROLES_DENIED_SUFFIX;
 
+    @Override
     public String toString() {
 	return canonicalName();
     }

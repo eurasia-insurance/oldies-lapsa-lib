@@ -9,12 +9,12 @@ class HttpServletRequestChecker implements SecuritySourceChecker {
 
     private final HttpServletRequest httpServletRequest;
 
-    HttpServletRequestChecker(HttpServletRequest httpServletRequest) {
+    HttpServletRequestChecker(final HttpServletRequest httpServletRequest) {
 	this.httpServletRequest = httpServletRequest;
     }
 
     @Override
-    public boolean isUserInRole(SecurityRole securityRole) {
+    public boolean isUserInRole(final SecurityRole securityRole) {
 	try {
 	    return httpServletRequest.isUserInRole(securityRole.roleName());
 	} catch (IllegalStateException | NullPointerException e) {
