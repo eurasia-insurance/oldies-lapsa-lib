@@ -12,7 +12,7 @@
 	<version>CURRENT-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Lapsa Lib</name>
+	<name>Oldies Lib : Lapsa Lib</name>
 
 	<modules>
 		<module>utils</module>

@@ -10,7 +10,7 @@
 	<artifactId>lapsa-utils</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Lapsa Lib : Utils</name>
+	<name>Oldies Lib : Lapsa Lib : Utils</name>
 
 	<dependencies>
 		<!-- Java EE -->
