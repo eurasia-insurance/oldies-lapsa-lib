@@ -12,7 +12,7 @@
 	<version>CURRENT-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Lapsa : Parent</name>
+	<name>Lapsa Lib</name>
 
 	<modules>
 		<module>utils</module>
